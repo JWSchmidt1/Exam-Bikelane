@@ -18,8 +18,6 @@ const Footer = () => {
     getDataEvent( "http://localhost:5888/events" )
   }, [] )
 
-  console.log( dataEvent )
-
   return (
     <>
       <div className='footerSections'>
@@ -61,16 +59,16 @@ const Footer = () => {
           <nav>
             <ul>
               <li>
-                <Link><BiChevronRight className='footerChevron' /> Om os</Link>
+                <Link to="about"><BiChevronRight className='footerChevron' /> Om os</Link>
               </li>
               <li>
-                <Link><BiChevronRight className='footerChevron' /> Events</Link>
+                <Link to="events"><BiChevronRight className='footerChevron' /> Events</Link>
               </li>
               <li>
-                <Link><BiChevronRight className='footerChevron' /> Kontakt</Link>
+                <Link to="contact"><BiChevronRight className='footerChevron' /> Kontakt</Link>
               </li>
               <li>
-                <Link><BiChevronRight className='footerChevron' /> Nyheder</Link>
+                <Link to="news"><BiChevronRight className='footerChevron' /> Nyheder</Link>
               </li>
             </ul>
           </nav>
@@ -81,11 +79,14 @@ const Footer = () => {
           <div className='footerGalleryImgs'>
             {
               dataEvent && dataEvent.slice( 0, 6 ).map( e =>
-                <img src={ `http://localhost:5888/images/event/${ e.image }` }></img>
+                <div className='footerGalleryImgsCon'>
+                  <img src={ `http://localhost:5888/images/event/${ e.image }` }></img>
+                </div>
               )
             }
           </div>
         </section>
+        <p className='footerCopyright'>© Copyright 2012 Bikelane.</p>
       </div>
     </>
   )

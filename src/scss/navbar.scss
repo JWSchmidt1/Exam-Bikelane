@@ -1,0 +1,188 @@
+@import "variables";
+
+// ** HEADER + NAV ** //
+// ** START ** //
+
+header {
+  padding: 0 7.5%;
+
+  .headerTextCon {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .headerContactCon {
+    display: flex;
+    font-size: calc(0.55rem + 0.55vw);
+    padding: 2rem 0;
+    gap: 2.5rem;
+    font-family: $font_second;
+
+    .headerContactInfo {
+      display: flex;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .headerContactIcon {
+      margin-right: 1rem;
+    }
+  }
+
+  .headerSocialCon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .headerSocialIcons {
+      i {
+        color: $dark-purple;
+        font-size: calc(0.65rem + 0.65vw);
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $blush;
+        }
+      }
+    }
+  }
+
+  .sticky-nav {
+    position: fixed;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 85%;
+  }
+
+  .navigation {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    // overflow: hidden;
+    // position: relative;
+    z-index: 100;
+
+    .navMenus {
+      li {
+        list-style: none;
+        display: inline-block;
+        padding: 4.2rem 1.2rem;
+        position: relative;
+      }
+
+      ul {
+        transition: all 0.3s ease;
+      }
+
+      .arrowdownCon {
+        padding-right: 2rem;
+        position: relative;
+      }
+
+      .arrowdown {
+        margin: auto 0;
+        font-size: calc(0.58em + 0.58vw);
+        padding: 0;
+        position: absolute;
+      }
+
+      .dropdowncontent {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 22rem;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        top: 100%;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      #eventsDropdown:hover .dropdowncontent {
+        display: block;
+        opacity: 1;
+      }
+
+      .dropdowncontent a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .show {
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: calc(0.65rem + 0.65vw);
+        font-weight: 600;
+        color: #000;
+        display: inline-block;
+        height: 100%;
+        // position: relative;
+        font-family: $font_second;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $blush;
+        }
+
+        .navUnderline {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          width: 100%;
+        }
+      }
+
+      .navFreeTrial {
+        background-color: $blush;
+        margin-left: 2rem;
+        border: none;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #fff;
+        height: 100%;
+        padding-left: 4rem;
+        padding-right: 4rem;
+        padding: 4.2rem 4rem;
+        font-size: calc(0.65rem + 0.65vw);
+        font-weight: 600;
+        font-family: $font_second;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #d45d7960;
+          color: $blush;
+        }
+      }
+    }
+
+    .navLogo {
+      width: 15%;
+      padding: 0 4rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .activeClassName > .navUnderline {
+      border-bottom: 4px solid $blush;
+    }
+  }
+}
+
+// ** END ** //

@@ -10,6 +10,8 @@ import News from './pages/News';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 
+import ScrollToTop from './components/ScrollToTop';
+
 import './scss/style.scss'
 
 const router = createBrowserRouter(
@@ -53,7 +55,10 @@ const router = createBrowserRouter(
 function App () {
 
   return (
+    <>
+    <ScrollToTop />
     <RouterProvider router={ router } />
+    </>
   );
 }
 

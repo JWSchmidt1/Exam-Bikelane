@@ -11,11 +11,11 @@ const DefaultLayout = () => {
                 <Header />
             </header>
 
-            <main className="container">
+            <main>
                 <Outlet />
             </main>
 
-            <footer className="container">
+            <footer>
                 <Footer />
             </footer>
 
