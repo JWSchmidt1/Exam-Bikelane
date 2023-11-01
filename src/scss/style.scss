@@ -910,7 +910,7 @@ body:has(.eventsHero) {
     grid-column: 1/4;
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
 
     .eventsGalleryCategory {
       list-style: none;
@@ -918,6 +918,9 @@ body:has(.eventsHero) {
       
       span {
         cursor: pointer;
+        font-size: calc(.65rem + .65vw);
+        font-family: $font_second;
+        color: $dim-gray;
       }
     }
   }
