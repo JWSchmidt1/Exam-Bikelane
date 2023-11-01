@@ -8,15 +8,9 @@ import logo from '../assets/images/logo/logo-black.png'
 
 const Navbar = () => {
 
-  // const { error: errorC, loading: loadingC, data: dataC, getData: getDataC } = useGetData()
-  // const { error: errorE, loading: loadingE, data: dataE, getData: getDataE } = useGetData()
   const { error, loading, data, getData } = useGetData()
 
-
   const [ stickyClass, setStickyClass ] = useState( '' );
-
-  // const [ isMenuOpen, setIsMenuOpen ] = useState( false );
-  const [ isDropdownOpen, setIsDropdownOpen ] = useState( false );
 
   useEffect( () => {
     // getDataC( "http://localhost:5888/contactinformation" )
@@ -29,24 +23,6 @@ const Navbar = () => {
     return () => window.removeEventListener( 'scroll', stickNavbar );
   }, [] );
 
-  const closeMenu = () => {
-    if ( isDropdownOpen ) {
-      setIsDropdownOpen( !isDropdownOpen );
-      document.querySelector( "li.dropdowncontent.show" )?.classList.remove( "show" );
-    }
-  }
-
-  const handleDropdownMenu = () => {
-    setIsDropdownOpen( !isDropdownOpen );
-
-    if ( isDropdownOpen ) {
-      document.querySelector( "li.dropdowncontent.show" )?.classList.remove( "show" );
-    }
-    else {
-      document.querySelector( "li.dropdowncontent" ).classList.add( "show" );
-    }
-  }
-
   const stickNavbar = () => {
     if ( window !== undefined ) {
       let windowHeight = window.scrollY;
@@ -54,8 +30,6 @@ const Navbar = () => {
       windowHeight > 400 ? setStickyClass( 'sticky-nav' ) : setStickyClass( '' );
     }
   };
-
-  console.log( isDropdownOpen )
 
 
   const navigate = useNavigate()
@@ -100,19 +74,6 @@ const Navbar = () => {
             </li>
           </ul>
         </li>
-        {/* <li className="dropdown" onClick={ ( e ) => handleDropdownMenu( e.currentTarget ) }>
-          <a className="dropbtn">Events<span className="arrowdownCon"><VscChevronDown className="arrowdown" /></span></a>
-          <ul>
-            <li className="dropdowncontent" id="myDropdown">
-              {
-                data && data.map((e) => 
-                  <NavLink to={`events/${e._id}`}>{e.category}</NavLink>
-                )
-              }
-            </li>
-          </ul>
-
-        </li> */}
         <li>
           <NavLink
             to="contact"
