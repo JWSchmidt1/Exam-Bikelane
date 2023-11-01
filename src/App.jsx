@@ -22,13 +22,12 @@ const router = createBrowserRouter(
       <Route path="/" element={ <DefaultLayout /> }>
         <Route index element={ <Home /> } />
         <Route path = "/about" element={<About />} />
+
         <Route path = "/events" element={<Events />} />
+        {/* <Route path = "/events/:eventsID" element={<EventsDetail />} />*/}
+        
         <Route path = "/contact" element={<Contact />} />
         <Route path = "/news" element={<News />} />
-        {/* <Route path = "/news/:newsID" element={<NewsDetails />} />
-        <Route path = "/kontakt" element={<Kontakt />} />
-        <Route path = "/ratingex" element={<Ratingex />} />
-        <Route path="search/:searchkey" element={ <SearchResults /> } /> */}
         <Route path="login" element={ <Login /> } />
         <Route path="*" element={ <NotFound /> } />
       </Route>
