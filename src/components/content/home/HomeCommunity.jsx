@@ -15,7 +15,7 @@ const HomeCommunity = () => {
     }, [] )
 
     return (
-        <div className='homeCommunityCon '>
+        <div className='homeCommunityCon'>
 
             { error && <ErrorMessage /> }
             { loading && <Loader /> }

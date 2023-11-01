@@ -31,17 +31,17 @@ const HomeEvents = () => {
                     <h3 className="subtitle homeEventsSub">{ dataH[ 5 ].suptitle }</h3>
                     <h2 className="title homeEventsTitle">{ dataH[ 5 ].title }</h2>
                     <div className='homeEventsBtnCon'>
-                        <button onClick={ () => navigate( dataH[ 5 ].buttonlink ) } className="homeEventsBtn">{ dataH[ 5 ].buttontext }</button>
+                        <button onClick={ () => navigate( dataH[ 5 ].buttonlink ) } className="btn">{ dataH[ 5 ].buttontext }</button>
                     </div>
                 </section>
             }
             <>
                 <Swiper
                     effect={ 'coverflow' }
-                    autoplay={{
+                    autoplay={ {
                         delay: 5000,
                         disableOnInteraction: false,
-                      }}
+                    } }
                     grabCursor={ true }
                     centeredSlides={ true }
                     slidesPerView={ 3 }
@@ -58,10 +58,12 @@ const HomeEvents = () => {
                 >
                     {
                         dataE && dataE.slice( 0, 4 ).map( ( e ) =>
-                            <SwiperSlide>
+                            <SwiperSlide onClick={() => navigate(`/events/${e._id}`)}>
                                 <img src={ `http://localhost:5888/images/event/${ e.image }` } alt="" />
-                                <h3 className='subtitle'>{ e.category.category }: { e.title }</h3>
+                                {/* <h3 className='subtitle'>{ e.category.category }: { e.title }</h3> */ }
                                 {/* <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> */ }
+                                <div className='sliderSub'><time>{ new Date( e.eventdate ).toLocaleString( "da-DK", { year: "numeric", month: "long", day: "numeric", } ) } </time>| Målgruppe: { e.category.category }</div>
+                                <h3 className='sliderTitle'>{ e.title }</h3>
                             </SwiperSlide>
                         )
                     }

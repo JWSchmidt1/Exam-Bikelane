@@ -5,6 +5,7 @@ import DefaultLayout from './layout/DefaultLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Events from './pages/Events';
+import EventsDetail from './pages/EventsDetail';
 import Contact from './pages/Contact';
 import News from './pages/News';
 import Login from './pages/Login';
@@ -24,7 +25,7 @@ const router = createBrowserRouter(
         <Route path = "/about" element={<About />} />
 
         <Route path = "/events" element={<Events />} />
-        {/* <Route path = "/events/:eventsID" element={<EventsDetail />} />*/}
+        <Route path = "/events/:eventsID" element={<EventsDetail />} />
         
         <Route path = "/contact" element={<Contact />} />
         <Route path = "/news" element={<News />} />

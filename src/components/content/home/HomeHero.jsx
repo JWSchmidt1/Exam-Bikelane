@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGetData } from '../../../hooks/useRequestData'
 
@@ -6,10 +6,13 @@ import ErrorMessage from '../../ErrorMessage'
 import Loader from '../../Loader'
 
 import { BsFillPlayFill } from 'react-icons/bs'
+import { CgClose } from 'react-icons/cg'
 
 const HomeHero = () => {
 
     const { error, loading, data, getData } = useGetData()
+
+    const [ openVideo, setOpenVideo ] = useState( false )
 
     useEffect( () => {
         getData( "http://localhost:5888/heros" )
@@ -17,8 +20,10 @@ const HomeHero = () => {
 
     const navigate = useNavigate()
 
+    console.log( openVideo )
+
     return (
-        <div className='forsideHero container'>
+        <div className='homeHero container'>
 
             { error && <ErrorMessage /> }
             { loading && <Loader /> }
@@ -26,17 +31,26 @@ const HomeHero = () => {
             {
                 data &&
                 <>
-                    <section className='forsideHeroTextCon'>
-                        <h1 className='forsideHeroHeader'>{ data[ 0 ].title.slice( 0, -25 ) }</h1>
-                        <p className='forsideHeroText'>{ data[ 0 ].content }</p>
-                        <button className='forsideHeroBtn' onClick={ () => navigate( data[ 0 ].buttonlink ) }>{ data[ 0 ].buttontext }</button>
+                    <section className='homeHeroTextCon'>
+                        <h1 className='homeHeroHeader'>{ data[ 0 ].title.slice( 0, -25 ) }</h1>
+                        <p className='homeHeroText'>{ data[ 0 ].content }</p>
+                        <button className='btn' onClick={ () => navigate( data[ 0 ].buttonlink ) }>{ data[ 0 ].buttontext }</button>
                     </section>
-                    <section className='forsideHeroVideoCon'>
-                        <button className='forsideHeroVideoBtn'><BsFillPlayFill className='forsideHeroVideoPlay' /></button>
+                    <section className='homeHeroVideoCon'>
+                        <button onClick={ () => setOpenVideo( true ) } className='homeHeroVideoBtn'><BsFillPlayFill className='homeHeroVideoPlay' /></button>
                         <img src={ `http://localhost:5888/images/hero/${ data[ 0 ].image }` } alt={ data[ 0 ].image } />
                     </section>
                 </>
             }
+            {
+                openVideo ? (
+                    <div className='videoOverlay'>
+                        <CgClose onClick={ () => setOpenVideo( false ) } className='videoClose' />
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/H55W1NhAbQo?si=J_-LwKsrbjLrGEDJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                ):(<></>)
+            }
+
         </div>
     )
 }

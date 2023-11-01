@@ -5,6 +5,7 @@
 
 header {
   padding: 0 7.5%;
+  min-height: 15rem;
 
   .headerTextCon {
     display: flex;
@@ -65,6 +66,7 @@ header {
     // overflow: hidden;
     // position: relative;
     z-index: 100;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     .navMenus {
       li {
@@ -164,7 +166,7 @@ header {
         cursor: pointer;
 
         &:hover {
-          background-color: #d45d7960;
+          background-color: #E8BCCA;
           color: $blush;
         }
       }
@@ -181,6 +183,19 @@ header {
 
     .activeClassName > .navUnderline {
       border-bottom: 4px solid $blush;
+    }
+  }
+}
+
+body:has(.kontaktHero) {
+  header {
+    position: absolute;
+    color: #fff;
+    width: 100%;
+  }
+  .headerSocialIcons {
+    i {
+      color: #fff;
     }
   }
 }

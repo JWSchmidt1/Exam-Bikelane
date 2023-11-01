@@ -33,6 +33,56 @@ body {
   color: $dark-purple;
 }
 
+button {
+  cursor: pointer;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  background-color: $blush;
+  font-family: $font_second;
+  font-size: calc(0.7rem + 0.7vw);
+  align-self: right;
+  padding: 2.2rem 3rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #E8BCCA;
+    color: $blush;
+    transform: translateY(-.5rem);
+  }
+}
+
+.videoOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 150;
+  background-color: #000000dd;
+
+  .videoClose {
+    position: absolute;
+    font-size: calc(1rem + 1vw);
+    color: #fff;
+    top: 3rem;
+    right: 3rem;
+    cursor: pointer;
+  }
+
+  iframe {
+    width: 50%;
+    height: 50%;
+  }
+}
+
 // ** FOOTER ** //
 // ** START ** //
 
@@ -69,7 +119,7 @@ footer {
             color: $blush;
           }
 
-          &:hover > .footerChevron {
+          &:hover>.footerChevron {
             transform: translateX(0.5rem);
           }
         }
@@ -128,8 +178,7 @@ footer {
       }
     }
 
-    .footerEvents {
-    }
+    .footerEvents {}
 
     .footerGallery {
       width: fit-content;
@@ -140,6 +189,7 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
       }
+
       .footerGalleryImgsCon {
         overflow: hidden;
         border-radius: 0.5rem;
@@ -175,43 +225,33 @@ footer {
 // ** START ** //
 
 // ** FORSIDE HERO ** //
-.forsideHero {
+.homeHero {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 8rem 7.5%;
   gap: 4rem;
 
-  .forsideHeroHeader {
+  .homeHeroHeader {
     font-size: calc(2rem + 2vw);
     padding: 5rem 0;
   }
 
-  .forsideHeroTextCon {
+  .homeHeroTextCon {
     padding-right: 15rem;
 
-    .forsideHeroText {
+    .homeHeroText {
       color: $dim-gray;
       font-size: calc(0.65rem + 0.65vw);
       padding-bottom: 4rem;
     }
-
-    .forsideHeroBtn {
-      background-color: $blush;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      padding: 2rem 3rem;
-      border-radius: 0.5rem;
-      font-size: calc(0.65rem + 0.65vw);
-    }
   }
 
-  .forsideHeroVideoCon {
+  .homeHeroVideoCon {
     position: relative;
     overflow: hidden;
     border-radius: 2rem;
 
-    .forsideHeroVideoBtn {
+    .homeHeroVideoBtn {
       position: absolute;
       top: 4rem;
       right: 4rem;
@@ -225,13 +265,13 @@ footer {
       &:hover {
         background-color: $blush;
 
-        .forsideHeroVideoPlay {
+        .homeHeroVideoPlay {
           color: #fff;
         }
       }
     }
 
-    .forsideHeroVideoPlay {
+    .homeHeroVideoPlay {
       font-size: calc(0.9rem + 0.9vw);
       margin-left: 0.5rem;
       color: $blush;
@@ -334,13 +374,11 @@ footer {
 .homeGoalsCon {
   height: 100rem;
   padding: 12rem 7.5%;
-  background: linear-gradient(
-    to top,
-    #fff 0%,
-    #fff 40%,
-    #f4f5fa 40%,
-    #f4f5fa 100%
-  );
+  background: linear-gradient(to top,
+      #fff 0%,
+      #fff 40%,
+      #f4f5fa 40%,
+      #f4f5fa 100%);
 
   .homeGoalsHeroCon {
     display: grid;
@@ -379,6 +417,8 @@ footer {
       align-self: flex-end;
     }
   }
+
+
 
   .homeGoalsStatsCon {
     background-image: url("../assets/images/backgrounds-og-patterns/bg1.jpg");
@@ -423,6 +463,11 @@ footer {
         padding: 1.3rem 0;
       }
 
+      // .homeGoalsCounter::after {
+      //   content: attr(datatext);
+
+      // }
+
       .homeGoalsStatsTitle {
         font-size: calc(0.6rem + 0.6vw);
         color: $blush;
@@ -465,6 +510,7 @@ footer {
           color: #fff;
         }
       }
+
       .homeGoalsStatsVideoPlay {
         font-size: calc(0.85rem + 0.85vw);
         margin-left: 0.3rem;
@@ -652,32 +698,37 @@ footer {
 
     .homeEventsBtnCon {
       grid-row: 2;
-      grid-columns: 2;
+      grid-column: 2;
       display: flex;
       justify-content: flex-end;
       align-items: end;
-
-      .homeEventsBtn {
-        border: none;
-        border-radius: 0.5rem;
-        color: #fff;
-        background-color: $blush;
-        font-family: $font_second;
-        font-size: calc(0.7rem + 0.7vw);
-        align-self: right;
-        padding: 2.2rem 3rem;
-      }
     }
   }
 
   .mySwiper {
     padding: 15rem 0;
 
+    .swiper-slide {
+      cursor: pointer;
+    }
+
     img {
       width: 100%;
       height: 35rem;
       border-radius: 1rem;
       object-fit: cover;
+    }
+
+    .sliderSub {
+      font-size: calc(.65rem + .65vw);
+      font-family: $font_second;
+      color: $blush;
+      padding-top: 2rem;
+    }
+
+    .sliderTitle {
+      font-size: calc(.85rem + .85vw);
+      padding-top: .5rem;
     }
   }
 }
@@ -687,14 +738,20 @@ footer {
 
 // ** KONTAKT HERO ** //
 .kontaktHero {
-  padding: 12rem 7.5%;
+  padding: 30rem 7.5% 22rem 7.5%;
   text-align: center;
   background-image: url("../assets/images/backgrounds-og-patterns/bg1.jpg");
+  background-size: cover;
+
+  .kontaktHeroCon {
+    position: relative;
+  }
 
   .kontaktTitle {
     padding: 1rem 0;
     color: #fff;
-      font-size: calc(2.45rem + 2.45vw);
+    font-size: calc(2.45rem + 2.45vw);
+    padding-bottom: 8rem;
   }
 
   .kontaktSub {
@@ -702,7 +759,359 @@ footer {
     font-size: calc(.7rem + .7vw);
     font-family: $font_second;
   }
+
+  .kontaktHeroImgCon {
+    display: flex;
+    width: 100%;
+    height: 60rem;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    // bottom: 40rem;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 }
+
+// ** KONTAKT FORM ** //
+.contactFormCon {
+  padding: 50rem 7.5% 12rem 7.5%;
+  background-image: url('../assets/images/backgrounds-og-patterns/bg4.png');
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 30% auto;
+  gap: 4rem;
+
+  .contactFormAddress {
+    grid-column: 1;
+    background: #c5c4da30;
+    border-radius: 1rem;
+    padding: 5rem 3rem;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: fit-content;
+
+
+    .contactAddressInfo {
+      font-family: $font_second;
+      font-size: calc(.7rem + .7vw);
+      color: $davy-gray;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+
+      .addressicon {
+        width: 4rem;
+        height: 4rem;
+        position: relative;
+        background-color: rgba(230, 215, 214, 0.694);
+        border-radius: 50%;
+        margin-right: 1rem;
+
+        .contactAddressIcon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: $blush;
+        }
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    font-family: $font_second;
+    font-size: calc(.65rem + .65vw);
+    gap: 2rem;
+    position: relative;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      color: $dim-gray;
+      gap: .5rem;
+    }
+
+    input,
+    textarea {
+      padding: 2rem;
+      border: 1px solid rgba(128, 128, 128, 0.479);
+      border-radius: .5rem;
+
+      &::placeholder {
+        font-size: calc(.65rem + .65vw);
+      }
+    }
+
+    textarea {
+      font-family: inherit;
+      padding-bottom: 14rem;
+    }
+
+    button {
+      border: none;
+      background: $dark-purple;
+      font-size: calc(.75rem + .75vw);
+      color: #fff;
+      width: fit-content;
+      border-radius: .5rem;
+      padding: 2.5rem 4rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  .formSubmitText {
+    position: absolute;
+    top: 100%;
+  }
+}
+
+.googleMaps {
+  border: none;
+  width: 100%;
+  height: 55rem;
+}
+
+// ** END ** //
+
+
+// ** EVENTS ** //
+// ** START ** //
+
+// ** EVENTS HERO ** //
+body:has(.eventsHero) {
+  background-color: #fff;
+}
+
+.eventsHero {
+  padding: 8rem 7.5%;
+  text-align: center;
+}
+
+// ** EVENTS GALLERI ** //
+.eventsGalleryCon {
+  padding: 6rem 7.5% 12rem 7.5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+
+  .eventsGalleryCategoryCon {
+    grid-column: 1/4;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .eventsGalleryCategory {
+      list-style: none;
+      display: inline-block;
+      
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .eventsGalleryImgCon {
+
+    .eventsGalleryImg {
+      height: 30rem;
+      overflow: hidden;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+
+      .overlay {
+        background-color: #261C2C99;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: all 1s ease;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 1s ease;
+
+      }
+
+      &:hover {
+        img {
+          transform: rotate(-5deg) scale(1.2);
+        }
+
+        .overlay {
+          opacity: 1;
+        }
+      }
+    }
+
+    .eventsDate {
+      color: $blush;
+      font-family: $font_second;
+      font-size: calc(.6rem + .6vw);
+      // font-weight: 600;
+    }
+
+    .eventsTitle {
+      font-size: calc(.85rem + .85vw);
+      padding-top: .5rem;
+    }
+  }
+}
+
+// ** EVENTS SPONSOR ** //
+.eventsSponsorCon {
+  padding: 12rem 0;
+  margin: 0 7.5%;
+  // display: flex;
+  // justify-content: space-between;
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: max-content auto;
+  align-items: center;
+  border-top: 1px solid #80808050;
+
+  .eventsSponsorHero {
+    grid-column: 1;
+
+    .eventsSponsorHeroSub {
+      color: $blush;
+      font-size: calc(.65rem + .65vw);
+      font-family: $font_second;
+      padding-bottom: 1rem;
+    }
+
+    .eventsSponsorHeroTitle {
+      color: $dark-purple;
+      font-size: calc(1.1rem + 1.1vw);
+      letter-spacing: -.15rem;
+    }
+  }
+
+  .eventsSponsorSliderCon {
+    grid-column: 2;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    // gap: 6rem;
+
+    .eventsSponsorSliderImg {
+      display: flex;
+      width: 11rem;
+      height: 11rem;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: grayscale(100%);
+      }
+    }
+  }
+}
+
+// ** EVENTS KONTAKT ** //
+.eventsContactCon {
+  padding: 14rem 7.5%;
+  display: flex;
+  background: rgb(21, 26, 60);
+  background-image: url('../assets/images/backgrounds-og-patterns/pattern2.png');
+  justify-content: space-between;
+
+  .eventsContactHero {
+    .eventsContactTitle {
+      color: #fff;
+      font-size: calc(2rem + 2vw);
+      letter-spacing: -.15rem;
+    }
+
+    .eventsContactSub {
+      font-family: $font_second;
+      font-size: calc(.85rem + .85vw);
+    }
+  }
+
+  .eventsContactBtnCon {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// ** EVENTS DETAIL ** //
+.eventsDetailCon {
+  padding: 12rem 7.5%;
+  display: flex;
+  gap: 7rem;
+
+  .eventsDetailText {
+    font-size: calc(.5rem + .5vw);
+    color: $davy-gray;
+  }
+
+  .eventsDetailDest {
+    font-family: $font_second;
+    font-size: calc(.7rem + .7vw);
+    color: $davy-gray;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: $blush;
+  }
+
+  .eventsDetailIconCon {
+    display: flex;
+    position: relative;
+    margin-right: 1rem;
+
+    .eventsDetailIcon {
+      color: $dark-purple;
+      color: $blush;
+    }
+  }
+
+  .eventsDetailTime {
+    font-size: calc(.6rem + .6vw);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+  }
+
+  .eventDetailImgCon {
+    width: 100%;
+    height: 50rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
 
 // ** TO TOP BUTTON ** //
 // ** START **//
@@ -719,6 +1128,7 @@ footer {
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
 .icon-style {
   background-color: transparent;
   height: 25px;
@@ -726,12 +1136,13 @@ footer {
   transition: 0.3s;
   color: $dark-purple;
 }
+
 .top-to-btm:hover {
   animation: none;
   background-color: $dark-purple;
   cursor: pointer;
 
-  > .icon-style {
+  >.icon-style {
     color: #fff;
   }
 }

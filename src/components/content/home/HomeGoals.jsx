@@ -44,7 +44,7 @@ const HomeGoals = () => {
             <div className='homeGoalsStats'>
               <div className='goalsStatsIconCon'><i className={ `${ e.icon } homeGoalsStatsIcon` } /></div>
               {/* <p className='homeGoalsStatsCount'>{e.goalcount}</p> */ }
-              <Counter number={ e.goalcount } />
+              <p className='homeGoalsCounter' datatext={ e.goalcount }><Counter className='homeGoalsCounters' datatext={e.goalcounter} number={ e.goalcount } /></p>
               <p className='homeGoalsStatsTitle'>{ e.goal }</p>
             </div>
           )

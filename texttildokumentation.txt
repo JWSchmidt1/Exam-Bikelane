@@ -1,0 +1,1 @@
+.replace(/(.{14})/, "$1<br>") - fundet i https://jsfiddle.net/x2YJp/
