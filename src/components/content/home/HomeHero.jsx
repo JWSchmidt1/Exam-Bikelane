@@ -20,8 +20,6 @@ const HomeHero = () => {
 
     const navigate = useNavigate()
 
-    console.log( openVideo )
-
     return (
         <div className='homeHero container'>
 
@@ -44,9 +42,9 @@ const HomeHero = () => {
             }
             {
                 openVideo ? (
-                    <div className='videoOverlay'>
-                        <CgClose onClick={ () => setOpenVideo( false ) } className='videoClose' />
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/H55W1NhAbQo?si=J_-LwKsrbjLrGEDJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div className='modalOverlay'>
+                        <CgClose onClick={ () => setOpenVideo( false ) } className='modalClose' />
+                        <iframe width="560" height="315" src={data[0]?.videolink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 ):(<></>)
             }

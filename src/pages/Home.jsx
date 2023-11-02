@@ -1,6 +1,6 @@
 import React from 'react'
 import HomeHero from '../components/content/home/HomeHero'
-import HomeCommunity from '../components/content/home/HomeCommunity'
+import Community from '../components/Community'
 import HomeGoals from '../components/content/home/HomeGoals'
 import HomeInterests from '../components/content/home/HomeInterests'
 import HomeAbout from '../components/content/home/HomeAbout'
@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <HomeHero />
-      <HomeCommunity />
+      <Community />
       <HomeGoals />
       <HomeInterests />
       <HomeAbout />

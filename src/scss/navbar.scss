@@ -201,3 +201,142 @@ body:has(.kontaktHero) {
 }
 
 // ** END ** //
+
+// ** BURGER MENU ** //
+#menu {
+  display: block;
+}
+
+#burger-menu {
+  cursor: pointer;
+  height: 27px;
+  width: 27px;
+  margin: 20px 30px;
+  overflow: visible;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  display: none;
+}
+
+#burger-menu span, #burger-menu span:before, #burger-menu span:after {
+  background: black;
+  display: block;
+  height: 2px;
+  opacity: 1;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+}
+
+#burger-menu span:before, #burger-menu span:after {
+  content: '';
+}
+
+#burger-menu span:before {
+  left: 0px;
+  top: -5px;
+  width: 15px;
+}
+
+#burger-menu span {
+  right: 0px;
+  top: 13px;
+  width: 15px;
+}
+
+#burger-menu span:after {
+  left: 0px;
+  top: 5px;
+  width: 15px;
+}
+
+#burger-menu.close span:before {
+  top: 0px;
+  transform: rotate(90deg);
+  width: 15px;
+}
+
+#burger-menu.close span {
+  transform: rotate(-45deg);
+  top: 13px;
+  width: 15px;
+}
+
+#burger-menu.close span:after {
+  top: 0px;
+  left: 0;
+  transform: rotate(90deg);
+  opacity: 0;
+  width: 0;
+}
+
+#menu {
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: -200%;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu.overlay {
+  visibility: visible;
+  opacity: 1;
+  margin-right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#menu ul {
+  padding: 0;
+  background-color: $dark-purple;
+  width: 50%;
+  height: 100%;
+  padding-top: 100px;
+  padding-left: 3rem;
+}
+
+#menu li {
+  list-style: none;
+}
+
+#menu a {
+  color: #fff;
+  display: inline-block;
+  font-size: calc(.7rem + .7vw);
+  margin-bottom: 1rem;
+  text-decoration: none;
+  user-select: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .navigation {
+    position: relative;
+    height: 6rem;
+  }
+
+  #burger-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 2%;
+    margin: auto 0;
+  
+  }
+
+
+  .navMenus {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+
+}

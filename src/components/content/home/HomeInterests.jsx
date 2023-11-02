@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
+import '../../../assets/Fonts/thin/style.css'
 
 const HomeInterests = () => {
 
@@ -21,8 +22,8 @@ const HomeInterests = () => {
                         <div className="homeInterestsKeypointsCon">
                             {
                                 data && data.keypoints.map( ( e, index ) =>
-                                    <div className='homeInterestsKeypoints'>
-                                        <div className='keypointIconCon'><i className={ `ph ${ e.icon }` } ></i></div>
+                                <div className='homeInterestsKeypoints'>
+                                        <div className='keypointIconCon'><i className={e.icon} ></i></div>
                                         <h4 className='homeInterestsKeypointsTitle' key={ index }>{ e.keypoint }</h4>
                                         <p className='homeInterestsKeypointsDesc'>{ e.description }</p>
                                     </div>

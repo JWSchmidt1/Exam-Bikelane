@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
-import Counter from '../../counter'
+
+import CounterComponent from '../../CounterComponent'
 
 import ErrorMessage from '../../ErrorMessage'
 import Loader from '../../Loader'
 
 import { BsFillPlayFill } from 'react-icons/bs'
+import { CgClose } from 'react-icons/cg'
 
 
 const HomeGoals = () => {
@@ -13,10 +15,14 @@ const HomeGoals = () => {
   const { error: errorHero, loading: loadingHero, data: dataHero, getData: getDataHero } = useGetData()
   const { error: errorGoal, loading: loadingGoal, data: dataGoal, getData: getDataGoal } = useGetData()
 
+  const [ openVideo, setOpenVideo ] = useState( false )
+
   useEffect( () => {
     getDataHero( "http://localhost:5888/heros" )
     getDataGoal( "http://localhost:5888/goals" )
   }, [] )
+
+  console.log( dataGoal )
 
   return (
     <div className='homeGoalsCon'>
@@ -38,26 +44,26 @@ const HomeGoals = () => {
           </section>
         </div>
       }
-      <section className='homeGoalsStatsCon'>
-        {
-          dataGoal && dataGoal.map( ( e, index ) =>
-            <div className='homeGoalsStats'>
-              <div className='goalsStatsIconCon'><i className={ `${ e.icon } homeGoalsStatsIcon` } /></div>
-              {/* <p className='homeGoalsStatsCount'>{e.goalcount}</p> */ }
-              <p className='homeGoalsCounter' datatext={ e.goalcount }><Counter className='homeGoalsCounters' datatext={e.goalcounter} number={ e.goalcount } /></p>
-              <p className='homeGoalsStatsTitle'>{ e.goal }</p>
-            </div>
-          )
-        }
+      <section className='counterGoalsStatsCon'>
+
+        <CounterComponent />
 
         <div className='homeGoalsStatsImgCon'>
           { dataHero &&
             <>
               <img src={ `http://localhost:5888/images/hero/${ dataHero[ 2 ].image }` } alt={ dataHero[ 2 ].image } className='homeGoalsStatsImg' />
-              <button className='homeGoalsStatsVideoBtn'><BsFillPlayFill className='homeGoalsStatsVideoPlay' /></button>
+              <button onClick={ () => setOpenVideo( true ) } className='homeGoalsStatsVideoBtn'><BsFillPlayFill className='homeGoalsStatsVideoPlay' /></button>
             </>
           }
         </div>
+          {
+            openVideo ? (
+              <div className='modalOverlay'>
+                <CgClose onClick={ () => setOpenVideo( false ) } className='modalClose' />
+                <iframe width="560" height="315" src={ dataHero[ 2 ]?.videolink } title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            ) : ( <></> )
+          }
       </section>
     </div>
   )

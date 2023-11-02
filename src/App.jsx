@@ -1,6 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 
 import DefaultLayout from './layout/DefaultLayout';
+import AdminLayout from './layout/AdminLayout';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -10,6 +11,11 @@ import Contact from './pages/Contact';
 import News from './pages/News';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
+
+import HomeAdmin from './pages/admin/HomeAdmin';
+import EventsAdmin from './pages/admin/EventsAdmin';
+import EventsCreate from './pages/admin/EventsCreate';
+import EventsEdit from './pages/admin/EventsEdit';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -34,19 +40,21 @@ const router = createBrowserRouter(
       </Route>
 
       {/* ADMIN */ }
-      {/* <Route path="/admin" element={ <AdminLayout /> }>
+      <Route path="/admin" element={ <AdminLayout /> }>
         <Route index element={ <HomeAdmin /> } />
-        <Route path="forsideadmin" element={ <ForsideAdmin /> } />
-        <Route path="omadmin" element={ <OmAdmin /> } />
-        <Route path="serviceadmin" element={ <ServiceAdmin /> } />
-        <Route path="faqadmin" element={ <FaqAdmin /> } /> */}
-        {/* NEWS */}
-        {/* <Route path="newsadmin" element={ <NyhederAdmin /> } />
-        <Route path="newsadmin/create" element={ <NewsCreate /> } />
-        <Route path="newsadmin/edit/:newsID" element={ <NewsEdit /> } />
 
-        <Route path="kontaktadmin" element={ <KontaktAdmin /> } />
-      </Route> */}
+        {/* EVENTS */}
+        <Route path="eventsadmin" element={ <EventsAdmin /> } />
+        <Route path="eventsadmin/create" element={ <EventsCreate /> } />
+        <Route path="eventsadmin/edit/:eventsID" element={ <EventsEdit /> } />
+
+        {/* NEWS */}
+        {/* <Route path="newsadmin" element={ <NyhederAdmin /> } /> */}
+        {/* <Route path="newsadmin/create" element={ <NewsCreate /> } /> */}
+        {/* <Route path="newsadmin/edit/:newsID" element={ <NewsEdit /> } /> */}
+
+        {/* <Route path="kontaktadmin" element={ <KontaktAdmin /> } /> */}
+      </Route>
     </>
 
   )

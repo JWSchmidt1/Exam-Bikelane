@@ -1,0 +1,254 @@
+@import "variables";
+
+.adminFormCon {
+    padding-top: 4rem;
+    display: flex;
+    // flex-direction: column;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem;
+    justify-content: center;
+
+    .adminForm {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            padding-bottom: 3rem;
+        }
+
+        .adminQuillTitle {
+            padding-bottom: 0;
+        }
+
+        button {
+            width: fit-content;
+        }
+    }
+}
+
+.quill {
+    background-color: #fff;
+    margin-bottom: 3rem;
+
+    .ql-container {
+        height: fit-content !important;
+    }
+}
+
+.adminTitle,
+.systemMessage {
+    text-align: center;
+}
+
+.systemMessage {
+    font-size: calc(.8rem + .8vw);
+}
+
+
+// ** HOME ADMIN ** //
+// ** START ** //
+.homeAdminCon {
+    padding: 4rem 7.5% 8rem 7.5%;
+
+    input,
+    textarea {
+        display: block;
+        border: 1px solid rgba(128, 128, 128, 0.479);
+        border-radius: .5rem;
+        padding: 1.5rem;
+        width: 100%;
+        font-family: $font_main;
+        font-size: calc(.55rem + .55vw);
+    }
+
+    .homeAdminImgTitle,
+    label {
+        font-size: calc(.7rem + .7vw);
+    }
+
+    textarea {
+        padding-bottom: 8rem;
+    }
+
+    .homeAdminCurrentImg {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 50rem;
+            height: 50rem;
+            object-fit: cover;
+        }
+    }
+}
+
+// ** END ** //
+
+
+// ** EVENTS ADMIN ** //
+// ** START ** //
+
+.eventsAdmin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 15% 8rem 15%;
+
+    .eventsAdminTableTitle {
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+
+        th {
+            font-size: calc(.75rem + .75vw);
+            padding: .5rem 0;
+        }
+
+        tr {
+            width: fit-content;
+        }
+
+        td {
+            padding: 1.5rem;
+            border: 1px solid rgba(128, 128, 128, 0.479);
+            font-size: calc(.65rem + .65vw);
+            color: $davy-gray;
+        }
+
+        .iconCon {
+            text-align: center;
+        }
+
+        .createIcon,
+        .deleteIcon,
+        .editIcon {
+            font-size: calc(1rem + 1vw);
+            cursor: pointer;
+        }
+
+        .eventsAdminTable:hover {
+            background-color: rgba(128, 128, 128, 0.25);
+        }
+
+        .deleteIcon {
+            color: darkred;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        .editIcon {
+            color: darkgreen;
+
+            &:hover {
+                color: lime;
+            }
+        }
+
+        .createIcon {
+            color: green;
+
+            &:hover {
+                color: lime;
+            }
+        }
+    }
+}
+
+
+// ** EVENTS EDIT ** //
+.eventsAdminEdit {
+    padding: 4rem 7.5% 8rem 7.5%;
+
+    .adminEventEditForm {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1rem 3rem;
+    }
+
+    input,
+    textarea,
+    select {
+        display: block;
+        border: 1px solid rgba(128, 128, 128, 0.479);
+        border-radius: .5rem;
+        padding: 1rem;
+        width: 100%;
+        font-family: $font_main;
+        font-size: calc(.5rem + .5vw);
+    }
+
+    .adminQuillTitle,
+    .quill,
+    .adminEventEditTitle,
+    .adminEventEditFile {
+        grid-column: 1/3;
+    }
+
+    .eventsAdminEditTitle,
+    label {
+        font-size: calc(.7rem + .7vw);
+    }
+
+    textarea {
+        padding-bottom: 8rem;
+    }
+
+    .eventsAdminEditCurrentImg {
+        position: relative;
+        overflow: hidden;
+        // width: 70rem;
+        height: 70rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+}
+
+// ** EVENTS OPRET ** //
+.eventsAdminCreate {
+    padding: 4rem 20% 8rem 20%;
+
+    .adminEventCreateForm {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1rem 3rem;
+    }
+
+    input,
+    textarea,
+    select {
+        display: block;
+        border: 1px solid rgba(128, 128, 128, 0.479);
+        border-radius: .5rem;
+        padding: 1rem;
+        width: 100%;
+        font-family: $font_main;
+        font-size: calc(.5rem + .5vw);
+    }
+
+    .adminQuillTitle,
+    .quill,
+    .adminEventCreateTitle,
+    .adminEventCreateFile {
+        grid-column: 1/3;
+    }
+
+    .eventsAdminCreateTitle,
+    label {
+        font-size: calc(.7rem + .7vw);
+    }
+
+    textarea {
+        padding-bottom: 8rem;
+    }
+}
+
+// ** END ** //

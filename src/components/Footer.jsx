@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useGetData } from '../hooks/useRequestData'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { BiChevronRight } from 'react-icons/bi'
 import { FiMail } from 'react-icons/fi'
 import { IoHome } from 'react-icons/io5'
+import { CgClose } from 'react-icons/cg'
 
 import logowhite from '../assets/images/logo/logo-white.png'
 
@@ -13,15 +14,24 @@ const Footer = () => {
   const { error, loading, data, getData } = useGetData()
   const { error: errorEvent, loading: loadingEvent, data: dataEvent, getData: getDataEvent } = useGetData()
 
+  const [ openLightbox, setOpenLightbox ] = useState( false )
+  const [ selectedImg, setSelectedImg ] = useState()
+
+  // const img = useRef()
+
   useEffect( () => {
     getData( "http://localhost:5888/contactinformation" )
     getDataEvent( "http://localhost:5888/events" )
   }, [] )
 
+  // function handleClick ( e ) {
+  //   img.current.src = []
+  // }
+
+
   return (
     <>
       <div className='footerSections'>
-
         <section className='footerAddress'>
           { data &&
             <>
@@ -44,8 +54,8 @@ const Footer = () => {
           <nav>
             <ul>
               {
-                dataEvent && dataEvent.slice( 0, 4 ).map( e =>
-                  <li>
+                dataEvent && dataEvent.slice( 0, 4 ).map( (e, index) =>
+                  <li key={index}>
                     <Link><BiChevronRight className='footerChevron' /> { e.title }</Link>
                   </li>
                 )
@@ -78,16 +88,24 @@ const Footer = () => {
           <h2>Galleri</h2>
           <div className='footerGalleryImgs'>
             {
-              dataEvent && dataEvent.slice( 0, 6 ).map( e =>
-                <div className='footerGalleryImgsCon'>
-                  <img src={ `http://localhost:5888/images/event/${ e.image }` }></img>
+              dataEvent && dataEvent.slice( 0, 6 ).map( ( e, index ) =>
+                <div onClick={ () => { setOpenLightbox( true ); setSelectedImg( e.image ) } } key={ index } className='footerGalleryImgsCon'>
+                  <img src={ `http://localhost:5888/images/event/${ e.image }` } />
                 </div>
               )
             }
           </div>
-        </section>
+        </section >
         <p className='footerCopyright'>© Copyright 2012 Bikelane.</p>
-      </div>
+        {
+          openLightbox ? (
+            <div className='modalOverlay'>
+              <CgClose onClick={ () => setOpenLightbox( false ) } className='modalClose' />
+              <img src={ `http://localhost:5888/images/event/${ selectedImg }` } alt="" />
+            </div>
+          ) : ( <></> )
+        }
+      </div >
     </>
   )
 }

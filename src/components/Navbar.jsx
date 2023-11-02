@@ -31,12 +31,36 @@ const Navbar = () => {
     }
   };
 
+  const [ isActive, setActive ] = useState( false );
+
+  const toggleClass = () => {
+    setActive( !isActive );
+    document.getElementById( "menu" ).classList.toggle( "overlay" );
+  };
 
   const navigate = useNavigate()
 
   return (
     <nav className={ `navigation ${ stickyClass }` }>
       <Link to="" className='navLogo'><img className='navLogoImg' src={ logo } alt="logo-black" /></Link>
+
+
+      {/* Burgermenu */ }
+      <div id="burger-menu" className={ isActive ? 'close' : null } onClick={ toggleClass } >
+        <span id="burger-box"></span>
+      </div>
+      <div id="menu">
+        <ul id="menu__ul">
+          <li><Link to="">Forside</Link></li>
+          <li><Link to="about">Om os</Link></li>
+          <li><Link to="events">Events</Link></li>
+          <li><Link to="contact">Kontakt</Link></li>
+          <li><Link to="news">Nyheder</Link></li>
+        </ul>
+      </div>
+      {/*  */ }
+
+
       <ul className='navMenus'>
         <li>
           <NavLink

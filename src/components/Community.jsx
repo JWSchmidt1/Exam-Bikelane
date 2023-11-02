@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import { useGetData } from '../../../hooks/useRequestData'
+import { useGetData } from '../hooks/useRequestData'
 
-import ErrorMessage from '../../ErrorMessage'
-import Loader from '../../Loader'
+import ErrorMessage from './ErrorMessage'
+import Loader from './Loader'
 
 import { BsCheck } from 'react-icons/bs'
 
-const HomeCommunity = () => {
+const Community = () => {
 
     const { error, loading, data, getData } = useGetData()
 
@@ -15,12 +15,12 @@ const HomeCommunity = () => {
     }, [] )
 
     return (
-        <div className='homeCommunityCon'>
+        <div className='communityCon'>
 
             { error && <ErrorMessage /> }
             { loading && <Loader /> }
 
-            <section className='homeCommunityImgCon'>
+            <section className='communityImgCon'>
                 { data &&
                     <>
                         <div className='splitImgCon'>
@@ -34,18 +34,18 @@ const HomeCommunity = () => {
                     </>
                 }
             </section>
-            <section className='homeCommunityTextCon'>
+            <section className='communityTextCon'>
                 {
                     data &&
                     <>
-                        <h3 className='homeCommunitySuptitle'>{ data.suptitle }</h3>
-                        <h2 className='homeCommunityTitle'>{ data.title }</h2>
-                        <p className='homeCommunityText'>{ data.content }</p>
+                        <h3 className='communitySuptitle'>{ data.suptitle }</h3>
+                        <h2 className='communityTitle'>{ data.title }</h2>
+                        <p className='communityText'>{ data.content }</p>
 
-                        <div className='homeCommunityKeypointsCon'>
+                        <div className='communityKeypointsCon'>
                             {
                                 data.keypoints.map( ( e, index ) =>
-                                    <p className='homeCommunityKeypoints' key={ index }><div className='keypointCheckmark'><BsCheck className='keypointCheckmarkIcon' /></div> { e.keypoint }</p>
+                                    <p className='communityKeypoints' key={ index }><div className='keypointCheckmark'><BsCheck className='keypointCheckmarkIcon' /></div> { e.keypoint }</p>
                                 )
                             }
                         </div>
@@ -56,4 +56,4 @@ const HomeCommunity = () => {
     )
 }
 
-export default HomeCommunity
+export default Community

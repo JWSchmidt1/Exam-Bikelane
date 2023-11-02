@@ -30,13 +30,19 @@ const EventsDetail = () => {
                 data &&
                 <>
                     <section>
-                        <div className='eventDetailDestCon'>
+                        <div className='eventDetailInfo'>
                             <p className='eventsDetailDest'><div className='eventsDetailIconCon'><BiMap className='eventsDetailIcon' /></div> { data.destination }</p>
                             <time className='eventsDetailTime'>{ new Date( data.eventdate ).toLocaleString( "da-DK", { year: "numeric", month: "long", day: "numeric", } ) } </time>
                         </div>
 
+                        <p className='eventDetailCat'>{data.category.category}</p>
                         <h2 className='title'>{ data.title }</h2>
                         <div className="eventsDetailText">{ parse( data.content ) }</div>
+
+                        <div className='eventDetailSubInfo'>
+                            <p className="eventDetailDistance"><b>Længde:</b> { data.distance } km</p>
+                            <p className='eventDetailDifficulty'><b>Sværhedsgrad:</b> { data.difficulty } / 10</p>
+                        </div>
                     </section>
                     <section className='eventDetailImgCon'>
                         <img src={ `http://localhost:5888/images/event/${ data.image }` } alt="" />

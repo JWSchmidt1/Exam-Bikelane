@@ -22,6 +22,8 @@ const HomeEvents = () => {
         getDataE( "http://localhost:5888/events" )
     }, [] )
 
+    const dateNow = new Date()
+
     return (
         <div className='homeEventsCon'>
 
@@ -57,7 +59,9 @@ const HomeEvents = () => {
                     className="mySwiper"
                 >
                     {
-                        dataE && dataE.slice( 0, 4 ).map( ( e ) =>
+                        dataE && dataE.sort( function ( a, b ) {
+                            return new Date( a.eventdate ) - new Date( b.eventdate );
+                        } ).filter( function ( e ) { return new Date( e.eventdate ) > dateNow } ).slice( 0, 4 ).map( ( e ) =>
                             <SwiperSlide onClick={() => navigate(`/events/${e._id}`)}>
                                 <img src={ `http://localhost:5888/images/event/${ e.image }` } alt="" />
                                 {/* <h3 className='subtitle'>{ e.category.category }: { e.title }</h3> */ }
