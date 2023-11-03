@@ -49,25 +49,19 @@ const EventsEdit = () => {
 
     const handleSubmit = ( e ) => {
 
+        e.preventDefault()
+
         let fd = new FormData( e.target )
         fd.append( "content", refQuill.current.value )
 
         putData( `http://localhost:5888/events/admin/${ eventsID }`, fd )
-
-        // e.target.reset()
-
-        // setTimeout( () => {
-
-        //     navigate( "/admin/newsadmin" )
-
-        // }, 1000 );
-
 
     }
 
     return (
         <div className='eventsAdminEdit'>
             <h1 className='adminTitle title'>Ret event - { eventsID }</h1>
+            { dataEdit && <h2 className='adminTitle'>Event er rettet</h2> }
 
             { ( error || errorEdit ) && <ErrorMessage /> }
             { ( loading || loadingEdit ) && <Loader /> }
@@ -96,7 +90,7 @@ const EventsEdit = () => {
                         </label>
 
                         <label>Dato
-                            <input type="date" name="eventdate" defaultValue={data.eventdate = new Date()} required />
+                            <input type="date" name="eventdate" required />
                         </label>
 
                         <label>Sværhedsgrad
@@ -104,7 +98,7 @@ const EventsEdit = () => {
                         </label>
 
                         <label>Længde
-                            <input type="number" name="distance" value={data.eventdate} min="1" required />
+                            <input type="number" name="distance" value={data.distance} min="1" required />
                         </label>
 
                         <label>Koordinater

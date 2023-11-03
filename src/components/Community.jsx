@@ -45,7 +45,7 @@ const Community = () => {
                         <div className='communityKeypointsCon'>
                             {
                                 data.keypoints.map( ( e, index ) =>
-                                    <p className='communityKeypoints' key={ index }><div className='keypointCheckmark'><BsCheck className='keypointCheckmarkIcon' /></div> { e.keypoint }</p>
+                                    <div className='communityKeypoints' key={ index }><p className='keypointCheckmark'><BsCheck className='keypointCheckmarkIcon' /></p> { e.keypoint }</div>
                                 )
                             }
                         </div>

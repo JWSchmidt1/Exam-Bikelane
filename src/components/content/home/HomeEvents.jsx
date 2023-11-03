@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
 import { useNavigate } from 'react-router-dom';
 
+import ErrorMessage from '../../ErrorMessage'
+import Loader from '../../Loader'
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -27,6 +30,9 @@ const HomeEvents = () => {
     return (
         <div className='homeEventsCon'>
 
+                { ( errorH || errorE ) && <ErrorMessage /> }
+                { ( loadingH || loadingE ) && <Loader /> }
+
             {
                 dataH &&
                 <section className='homeEventsHero'>
@@ -40,6 +46,24 @@ const HomeEvents = () => {
             <>
                 <Swiper
                     effect={ 'coverflow' }
+                    breakpoints={ {
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        640: {
+                            slidesPerView: 1,
+                        },
+                        641: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                        },
+                        1025: {
+                            slidesPerView: 3,
+                        }
+
+                    } }
                     autoplay={ {
                         delay: 5000,
                         disableOnInteraction: false,
@@ -59,13 +83,9 @@ const HomeEvents = () => {
                     className="mySwiper"
                 >
                     {
-                        dataE && dataE.sort( function ( a, b ) {
-                            return new Date( a.eventdate ) - new Date( b.eventdate );
-                        } ).filter( function ( e ) { return new Date( e.eventdate ) > dateNow } ).slice( 0, 4 ).map( ( e ) =>
-                            <SwiperSlide onClick={() => navigate(`/events/${e._id}`)}>
+                        dataE && dataE.sort( ( a, b ) => new Date( a.eventdate ) - new Date( b.eventdate ) ).filter( ( e ) => new Date( e.eventdate ) > dateNow ).slice( 0, 4 ).map( ( e, index ) =>
+                            <SwiperSlide key={ index } onClick={ () => navigate( `/events/${ e._id }` ) }>
                                 <img src={ `http://localhost:5888/images/event/${ e.image }` } alt="" />
-                                {/* <h3 className='subtitle'>{ e.category.category }: { e.title }</h3> */ }
-                                {/* <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> */ }
                                 <div className='sliderSub'><time>{ new Date( e.eventdate ).toLocaleString( "da-DK", { year: "numeric", month: "long", day: "numeric", } ) } </time>| Målgruppe: { e.category.category }</div>
                                 <h3 className='sliderTitle'>{ e.title }</h3>
                             </SwiperSlide>

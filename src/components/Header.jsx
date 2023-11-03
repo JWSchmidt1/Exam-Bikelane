@@ -16,10 +16,12 @@ const Header = () => {
     getData( "http://localhost:5888/contactinformation" )
   }, [] )
 
-  console.log( data )
-
   return (
     <div className='headerCon'>
+
+        { error && <ErrorMessage /> }
+        { loading && <Loader /> }
+
       { data &&
         <div className='headerTextCon'>
           <div className='headerContactCon'>
@@ -30,8 +32,8 @@ const Header = () => {
 
           <div className='headerSocialCon'>
             {
-              data && data.some.map((e, index) =>
-                <a className='headerSocialIcons' href={e.link} target='_blank'><i className={e.icon} /></a>
+              data && data.some.map( ( e, index ) =>
+                <a key={ index } className='headerSocialIcons' href={ e.link } target='_blank'><i className={ e.icon } /></a>
               )
             }
           </div>

@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
 import '../../../assets/Fonts/thin/style.css'
 
+import ErrorMessage from '../../ErrorMessage'
+import Loader from '../../Loader'
+
 const HomeInterests = () => {
 
     const { error, loading, data, getData } = useGetData()
@@ -12,6 +15,10 @@ const HomeInterests = () => {
 
     return (
         <div className='homeInterestsCon'>
+
+                { error && <ErrorMessage /> }
+                { loading && <Loader /> }
+
             {
                 data &&
                 <>
@@ -22,8 +29,8 @@ const HomeInterests = () => {
                         <div className="homeInterestsKeypointsCon">
                             {
                                 data && data.keypoints.map( ( e, index ) =>
-                                <div className='homeInterestsKeypoints'>
-                                        <div className='keypointIconCon'><i className={e.icon} ></i></div>
+                                    <div key={ index } className='homeInterestsKeypoints'>
+                                        <div className='keypointIconCon'><i className={ e.icon } ></i></div>
                                         <h4 className='homeInterestsKeypointsTitle' key={ index }>{ e.keypoint }</h4>
                                         <p className='homeInterestsKeypointsDesc'>{ e.description }</p>
                                     </div>

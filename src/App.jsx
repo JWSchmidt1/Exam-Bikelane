@@ -16,6 +16,7 @@ import HomeAdmin from './pages/admin/HomeAdmin';
 import EventsAdmin from './pages/admin/EventsAdmin';
 import EventsCreate from './pages/admin/EventsCreate';
 import EventsEdit from './pages/admin/EventsEdit';
+import ContactAdmin from './pages/admin/ContactAdmin';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -48,12 +49,8 @@ const router = createBrowserRouter(
         <Route path="eventsadmin/create" element={ <EventsCreate /> } />
         <Route path="eventsadmin/edit/:eventsID" element={ <EventsEdit /> } />
 
-        {/* NEWS */}
-        {/* <Route path="newsadmin" element={ <NyhederAdmin /> } /> */}
-        {/* <Route path="newsadmin/create" element={ <NewsCreate /> } /> */}
-        {/* <Route path="newsadmin/edit/:newsID" element={ <NewsEdit /> } /> */}
+        <Route path="contactadmin" element={ <ContactAdmin /> } />
 
-        {/* <Route path="kontaktadmin" element={ <KontaktAdmin /> } /> */}
       </Route>
     </>
 

@@ -48,6 +48,7 @@ const EventsCreate = () => {
     return (
         <div className='eventsAdminCreate'>
             <h1 className='adminTitle title'>Opret nyt event</h1>
+            { data && <h2 className='adminTitle'>Nyt event er oprettet</h2> }
 
             { ( error || errorEC ) && <ErrorMessage /> }
             { ( loading || loadingEC ) && <Loader /> }
@@ -102,7 +103,7 @@ const EventsCreate = () => {
                         <input type="file" name='image' required />
                     </label>
 
-                    <button className='btn' type="submit" >Ret Event</button>
+                    <button className='btn' type="submit" >Opret Event</button>
                 </form>
             </section>
 

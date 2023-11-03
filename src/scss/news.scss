@@ -15,6 +15,41 @@
     grid-template-columns: repeat(2, 1fr);
     column-gap: 16rem;
 
+    .newsSearchCon {
+        padding: 0 7.5%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        grid-column: 1/3;
+
+        .newsSearch {
+            border-radius: 0.5rem;
+            padding: 1.8rem;
+            border: 1px solid lightgray;
+            padding-right: 4rem;
+        }
+
+        .newsSearch {
+            position: relative;
+            &::placeholder {
+                color: black;
+                user-select: none;
+            }
+        }
+
+        .newsSearchIcon {
+            position: absolute;
+            font-size: 2.5rem;
+            right: 8.5%;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+
+    }
+
     .newsLatestCon {
         display: flex;
         flex-direction: column;
@@ -92,6 +127,164 @@
             line-height: 3rem;
             color: $dim-gray;
             padding-bottom: 4rem;
+        }
+    }
+}
+
+/* ************ TABLET ************ */
+@media only screen and (max-width: 1024px) and (min-width: 641px) {
+
+    // ** NYHEDER HERO ** //
+    .newsHeroCon {
+        padding: 4rem 7.5%;
+    }
+
+    // ** NYHEDER NYESTE ** //
+    .newsGalleryCon {
+        padding: 0 7.5%;
+        padding-bottom: 8rem;
+        column-gap: 6rem;
+
+        .newsLatestCon {
+            padding: 0 0;
+            padding-bottom: 8rem;
+
+            .newsLatestImgCon {
+                height: fit-content;
+            }
+        }
+
+        .newsCreated {
+            font-size: calc(.6rem + .6vw);
+        }
+
+        .newsWrittenBy {
+            font-size: calc(.8rem + .8vw);
+        }
+
+        .newsText {
+            font-size: calc(1rem + 1vw);
+            line-height: 3rem;
+        }
+
+
+        .btn-second {
+            width: fit-content;
+        }
+
+        .newsGalleryNormal {
+            padding: 8rem 0;
+
+            .newsGalleryImgCon {
+
+                img {
+                    height: 20rem;
+                }
+            }
+
+            .newsGalleryTitle {
+                font-size: calc(1.2rem + 1.2vw);
+            }
+
+            .newsGalleryText {
+                font-size: calc(.7rem + .7vw);
+                line-height: 2rem;
+            }
+        }
+    }
+}
+
+/* ************ PHONE ************ */
+@media only screen and (max-width: 640px) {
+
+    // ** NYHEDER HERO ** //
+    .newsHeroCon {
+        padding: 4rem 5%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    // ** NYHEDER NYESTE ** //
+    .newsGalleryCon {
+        padding: 0 0;
+        padding-bottom: 8rem;
+        display: flex;
+        flex-direction: column;
+        column-gap: 0;
+
+        .newsLatestCon {
+            display: flex;
+            flex-direction: column;
+            padding: 0 5%;
+            gap: 2rem;
+            border-bottom: 1px solid #80808050;
+            padding-bottom: 8rem;
+
+            .newsLatestImgCon {
+                height: fit-content;
+                overflow: hidden;
+                border-radius: 1rem;
+
+                .newsLatestImg {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .newsCreated {
+            font-size: calc(.8rem + .8vw);
+        }
+
+        .newsWrittenBy {
+            font-size: calc(1rem + 1vw);
+
+        }
+
+        .newsTitle {
+            font-size: calc(2.5rem + 2.5vw);
+        }
+
+        .newsText {
+            font-size: calc(1rem + 1vw);
+            line-height: 3rem;
+            color: $dim-gray;
+            columns: 1;
+        }
+
+
+        .btn-second {
+            width: fit-content;
+        }
+
+        .newsGalleryNormal {
+            padding: 8rem 7.5%;
+            border-top: 1px solid #80808050;
+
+            &:nth-child(2) {
+                border-top: none;
+            }
+
+            .newsGalleryImgCon {
+
+                img {
+                    width: 100%;
+                    height: 40rem;
+                    object-fit: cover;
+                }
+            }
+
+            .newsGalleryTitle {
+                padding: 1rem 0;
+                font-size: calc(2.3rem + 2.3vw);
+            }
+
+            .newsGalleryText {
+                font-size: calc(.8rem + .8vw);
+                line-height: 3rem;
+                color: $dim-gray;
+                padding-bottom: 4rem;
+            }
         }
     }
 }

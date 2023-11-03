@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
+import { BiLogoFacebook, BiLogoInstagram, BiLogoTwitter } from 'react-icons/bi'
+
+import ErrorMessage from '../../ErrorMessage'
+import Loader from '../../Loader'
 
 const HomeAbout = () => {
 
@@ -12,6 +16,9 @@ const HomeAbout = () => {
     return (
         <div className='homeAboutCon'>
 
+                { error && <ErrorMessage /> }
+                { loading  && <Loader /> }
+
             <section className='homeAboutHero'>
                 <h3 className="subtitle homeAboutSub">Hvem er vi</h3>
                 <h2 className="title homeAboutTitle">Et udvalg af os i klubben</h2>
@@ -20,16 +27,19 @@ const HomeAbout = () => {
             <section className='homeAboutImgSection'>
                 {
                     data && data.slice( 0, 4 ).map( ( e, index ) =>
-                        <>
-                            <div className='homeAboutImgCon' key={ index }>
-                                <img src={ `http://localhost:5888/images/testimonial/${ e.image }` } alt="" />
-                                <div className='homeAboutImgInfo'>
-                                    <p className='infoName'>{e.name}</p>
-                                    <p className='infoExperience'>{e.experience}</p>
-                                    <p className='infoMotivation'>{e.motivation}</p>
-                                </div>
+                        <div className='homeAboutImgCon' key={ index }>
+                            <img src={ `http://localhost:5888/images/testimonial/${ e.image }` } alt="" />
+                            <div className='homeAboutSocialsCon'>
+                                <div className="homeAboutSocialIconCon"><BiLogoFacebook className="homeAboutSocialIcon" /></div>
+                                <div className="homeAboutSocialIconCon"><BiLogoInstagram className="homeAboutSocialIcon" /></div>
+                                <div className="homeAboutSocialIconCon"><BiLogoTwitter className="homeAboutSocialIcon" /></div>
                             </div>
-                        </>
+                            <div className='homeAboutImgInfo'>
+                                <p className='infoName'>{ e.name }</p>
+                                <p className='infoExperience'>{ e.experience }</p>
+                                <p className='infoMotivation'>{ e.motivation }</p>
+                            </div>
+                        </div>
                     )
                 }
             </section>

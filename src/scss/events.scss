@@ -1,0 +1,584 @@
+@import "variables";
+
+
+// ** EVENTS ** //
+// ** START ** //
+
+// ** EVENTS HERO ** //
+body:has(.eventsHero) {
+    background-color: #fff;
+}
+
+.eventsHero {
+    padding: 8rem 7.5% 4rem 7.5%;
+    text-align: center;
+}
+
+// ** EVENTS GALLERI ** //
+.eventsGalleryCon {
+    padding: 4rem 7.5% 12rem 7.5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+
+    .eventsGalleryPaginationCon {
+        grid-column: 1/4;
+    }
+
+    .eventsGalleryCategoryCon {
+        grid-column: 1/4;
+        display: flex;
+        justify-content: center;
+        gap: 1.8rem;
+
+        .eventsGalleryCategory {
+            list-style: none;
+            display: inline-block;
+
+            span {
+                cursor: pointer;
+                font-size: calc(.65rem + .65vw);
+                font-family: $font_second;
+                color: $dim-gray;
+            }
+        }
+    }
+
+    .eventsGalleryImgCon {
+        cursor: pointer;
+
+        .eventsGalleryImg {
+            height: 30rem;
+            overflow: hidden;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+
+            .overlay {
+                background-color: #261C2C99;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: all 1s ease;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: all 1s ease;
+
+            }
+
+            &:hover {
+                img {
+                    transform: rotate(-5deg) scale(1.2);
+                }
+
+                .overlay {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .eventsDate {
+            color: $blush;
+            font-family: $font_second;
+            font-size: calc(.6rem + .6vw);
+            // font-weight: 600;
+        }
+
+        .eventsTitle {
+            font-size: calc(.85rem + .85vw);
+            padding-top: .5rem;
+        }
+    }
+}
+
+// ** EVENTS SPONSOR ** //
+.eventsSponsorCon {
+    padding: 12rem 0;
+    margin: 0 7.5%;
+    // display: flex;
+    // justify-content: space-between;
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: max-content auto;
+    align-items: center;
+    border-top: 1px solid #80808050;
+
+    .eventsSponsorHero {
+        grid-column: 1;
+
+        .eventsSponsorHeroSub {
+            color: $blush;
+            font-size: calc(.65rem + .65vw);
+            font-family: $font_second;
+            padding-bottom: 1rem;
+        }
+
+        .eventsSponsorHeroTitle {
+            color: $dark-purple;
+            font-size: calc(1.1rem + 1.1vw);
+            letter-spacing: -.15rem;
+        }
+    }
+
+    .eventsSponsorSliderCon {
+        grid-column: 2;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        // gap: 6rem;
+
+        .eventsSponsorSliderImg {
+            display: flex;
+            width: 11rem;
+            height: 11rem;
+            align-items: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                filter: grayscale(100%);
+            }
+        }
+    }
+}
+
+// ** EVENTS KONTAKT ** //
+.eventsContactCon {
+    padding: 14rem 7.5%;
+    display: flex;
+    background: rgb(21, 26, 60);
+    background-image: url('../assets/images/backgrounds-og-patterns/pattern2.png');
+    justify-content: space-between;
+
+    .eventsContactHero {
+        .eventsContactTitle {
+            color: #fff;
+            font-size: calc(2rem + 2vw);
+            letter-spacing: -.15rem;
+        }
+
+        .eventsContactSub {
+            font-family: $font_second;
+            font-size: calc(.85rem + .85vw);
+        }
+    }
+
+    .eventsContactBtnCon {
+        display: flex;
+        align-items: center;
+    }
+}
+
+// ** EVENTS DETAIL ** //
+.eventsDetailCon {
+    padding: 12rem 7.5%;
+    display: flex;
+    gap: 7rem;
+
+    .eventsDetailText {
+        font-size: calc(.5rem + .5vw);
+        color: $davy-gray;
+    }
+
+    .eventsDetailDest {
+        font-family: $font_second;
+        font-size: calc(.7rem + .7vw);
+        color: $davy-gray;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        color: $blush;
+    }
+
+    .eventDetailCat {
+        font-size: calc(.6rem + .6vw);
+        padding-top: 4rem;
+        font-style: italic;
+    }
+
+    .eventsDetailIconCon {
+        display: flex;
+        position: relative;
+        margin-right: 1rem;
+
+        .eventsDetailIcon {
+            color: $dark-purple;
+            color: $blush;
+        }
+    }
+
+    .eventsDetailTime {
+        font-size: calc(.6rem + .6vw);
+    }
+
+    ul,
+    ol {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    .eventDetailImgCon {
+        width: 100%;
+        height: 50rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 1rem;
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .eventDetailSubInfo {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        padding-top: 3rem;
+        color: $dark-purple;
+        font-size: calc(.65rem + .65vw);
+    }
+}
+
+// ** END ** //
+
+/* ************ TABLET ************ */
+@media only screen and (max-width: 1024px) and (min-width: 641px) {
+    
+    // ** EVENTS HERO ** //
+    body:has(.eventsHero) {
+        background-color: #fff;
+    }
+
+    .eventsHero {
+        padding: 8rem 7.5% 4rem 7.5%;
+        text-align: center;
+
+        .eventsTitle {
+            font-size: calc(2.8rem + 2.8vw);
+        }
+    }
+
+    // ** EVENTS GALLERI ** //
+    .eventsGalleryCon {
+        padding: 6rem 7.5% 12rem 7.5%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5rem;
+
+        .eventsGalleryPaginationCon {
+            grid-column: 1/3;
+        }
+
+        .eventsGalleryCategoryCon {
+            grid-column: 1/3;
+            .eventsGalleryCategory {
+
+                span {
+                    font-size: calc(1rem + 1vw);
+                }
+            }
+        }
+
+        .eventsGalleryImgCon {
+
+            .eventsGalleryImg {
+                margin-bottom: 2rem;
+            }
+
+            .eventsDate {
+                font-size: calc(.8rem + .8vw);
+            }
+
+            .eventsTitle {
+                font-size: calc(1.1rem + 1.1vw);
+                padding-top: .5rem;
+            }
+        }
+    }
+
+    // ** EVENTS SPONSOR ** //
+    .eventsSponsorCon {
+        padding: 12rem 0;
+        margin: 0 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        text-align: center;
+        border-top: 1px solid #80808050;
+
+        .eventsSponsorHero {
+            grid-column: 1;
+
+            .eventsSponsorHeroSub {
+                color: $blush;
+                font-size: calc(.85rem + .85vw);
+                font-family: $font_second;
+                padding-bottom: 1rem;
+            }
+
+            .eventsSponsorHeroTitle {
+                color: $dark-purple;
+                font-size: calc(1.4rem + 1.4vw);
+                letter-spacing: -.15rem;
+            }
+        }
+
+        .eventsSponsorSliderCon {
+            gap: 15%;
+
+            
+            .eventsSponsorSliderImg {
+                width: fit-content;
+                height: 20rem;
+                
+                &:nth-child(5), &:nth-child(6) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    // ** EVENTS KONTAKT ** //
+    .eventsContactCon {
+        padding: 12rem 5%;
+        display: flex;
+        flex-direction: column;
+        background: rgb(21, 26, 60);
+        background-image: url('../assets/images/backgrounds-og-patterns/pattern2.png');
+        justify-content: space-between;
+
+        .eventsContactHero {
+            .eventsContactTitle {
+                font-size: calc(2.5rem + 2.5vw);
+            }
+
+            .eventsContactSub {
+                font-size: calc(1.3rem + 1.3vw);
+            }
+        }
+
+        .eventsContactBtnCon {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    // ** EVENTS DETAIL ** //
+    .eventsDetailCon {
+        padding: 12rem 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        .eventsDetailText {
+            font-size: calc(1rem + 1vw);
+        }
+
+        .eventsDetailDest {
+            font-size: calc(1.2rem + 1.2vw);
+        }
+
+        .eventDetailCat {
+            font-size: calc(1rem + 1vw);
+            padding-top: 2rem;
+        }
+
+        .eventsDetailIconCon {
+            margin-right: .5rem;
+        }
+
+        .eventsDetailTime {
+            font-size: calc(1rem + 1vw);
+        }
+
+        .eventDetailImgCon {
+            height: 35rem;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .eventDetailSubInfo {
+            gap: .5rem;
+            font-size: calc(1rem + 1vw);
+        }
+    }
+}
+
+/* ************ PHONE ************ */
+@media only screen and (max-width: 640px) {
+
+    // ** EVENTS HERO ** //
+    body:has(.eventsHero) {
+        background-color: #fff;
+    }
+
+    .eventsHero {
+        padding: 8rem 5% 4rem 5%;
+        text-align: center;
+
+        .eventsTitle {
+            font-size: calc(3rem + 3vw);
+        }
+    }
+
+    // ** EVENTS GALLERI ** //
+    .eventsGalleryCon {
+        padding: 6rem 5% 12rem 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        .eventsGalleryCategoryCon {
+
+            .eventsGalleryCategory {
+
+                span {
+                    font-size: calc(1rem + 1vw);
+                }
+            }
+        }
+
+        .eventsGalleryImgCon {
+
+            .eventsGalleryImg {
+                margin-bottom: 2rem;
+            }
+
+            .eventsDate {
+                font-size: calc(1rem + 1vw);
+            }
+
+            .eventsTitle {
+                font-size: calc(1.4rem + 1.4vw);
+                padding-top: .5rem;
+            }
+        }
+    }
+
+    // ** EVENTS SPONSOR ** //
+    .eventsSponsorCon {
+        padding: 12rem 0;
+        margin: 0 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        text-align: center;
+        border-top: 1px solid #80808050;
+
+        .eventsSponsorHero {
+            grid-column: 1;
+
+            .eventsSponsorHeroSub {
+                color: $blush;
+                font-size: calc(.85rem + .85vw);
+                font-family: $font_second;
+                padding-bottom: 1rem;
+            }
+
+            .eventsSponsorHeroTitle {
+                color: $dark-purple;
+                font-size: calc(1.4rem + 1.4vw);
+                letter-spacing: -.15rem;
+            }
+        }
+
+        .eventsSponsorSliderCon {
+            gap: 50%;
+
+            
+            .eventsSponsorSliderImg {
+                width: fit-content;
+                height: 20rem;
+                
+                &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    // ** EVENTS KONTAKT ** //
+    .eventsContactCon {
+        padding: 12rem 5%;
+        display: flex;
+        flex-direction: column;
+        background: rgb(21, 26, 60);
+        background-image: url('../assets/images/backgrounds-og-patterns/pattern2.png');
+        justify-content: space-between;
+
+        .eventsContactHero {
+            .eventsContactTitle {
+                font-size: calc(2.5rem + 2.5vw);
+            }
+
+            .eventsContactSub {
+                font-size: calc(1.3rem + 1.3vw);
+            }
+        }
+
+        .eventsContactBtnCon {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    // ** EVENTS DETAIL ** //
+    .eventsDetailCon {
+        padding: 12rem 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        .eventsDetailText {
+            font-size: calc(1rem + 1vw);
+        }
+
+        .eventsDetailDest {
+            font-size: calc(1.2rem + 1.2vw);
+        }
+
+        .eventDetailCat {
+            font-size: calc(1rem + 1vw);
+            padding-top: 2rem;
+        }
+
+        .eventsDetailIconCon {
+            margin-right: .5rem;
+        }
+
+        .eventsDetailTime {
+            font-size: calc(1rem + 1vw);
+        }
+
+        .eventDetailImgCon {
+            height: 35rem;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .eventDetailSubInfo {
+            gap: .5rem;
+            font-size: calc(1rem + 1vw);
+        }
+    }
+}

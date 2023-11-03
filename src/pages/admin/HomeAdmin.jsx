@@ -16,7 +16,7 @@ const HomeAdmin = () => {
 
     const handleSubmit = ( e ) => {
 
-        // e.preventDefault()
+        e.preventDefault()
 
         const id = data[ 0 ]._id
 
@@ -29,11 +29,10 @@ const HomeAdmin = () => {
     return (
         <div className='homeAdminCon'>
             <h1 className='adminTitle title'>Administrerer Forside Hero</h1>
+            { dataEdit && <h2 className='adminTitle'>Forsiden er rettet</h2> }
 
-            <div className='systemMessage'>
-                { ( error ) && <ErrorMessage errorMessage="Admin Forside" /> }
+                { error && <ErrorMessage /> }
                 { ( loading || loadingEdit ) && <Loader /> }
-            </div>
 
             {
                 data &&

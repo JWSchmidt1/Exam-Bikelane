@@ -3,6 +3,9 @@ import React, { useEffect } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
 import parse from 'html-react-parser'
 
+import ErrorMessage from '../../ErrorMessage'
+import Loader from '../../Loader'
+
 const EventsHero = () => {
 
     const { error, loading, data, getData } = useGetData()
@@ -15,6 +18,8 @@ const EventsHero = () => {
 
     return (
         <div className='eventsHero'>
+                { error && <ErrorMessage /> }
+                { loading && <Loader /> }
             {
                 data &&
                 <section>

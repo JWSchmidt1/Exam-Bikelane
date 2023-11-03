@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useGetData, usePostData } from '../../../hooks/useRequestData'
+import ErrorMessage from '../../ErrorMessage'
+import Loader from '../../Loader'
 
 import { FaRegBuilding } from 'react-icons/fa'
 import { FiMail } from 'react-icons/fi'
@@ -51,6 +53,10 @@ const ContactForm = () => {
 
     return (
         <div className='contactFormCon'>
+
+                { ( errorI || errorC ) && <ErrorMessage /> }
+                { ( loadingI || loadingC ) && <Loader /> }
+
             <address className='contactFormAddress'>
                 {
                     dataC &&
@@ -62,8 +68,8 @@ const ContactForm = () => {
                     </>
                 }
             </address>
-            <form  onSubmit={ handleSubmit } ref={ refForm }>
-            
+            <form onSubmit={ handleSubmit } ref={ refForm }>
+
                 <label>Navn
                     <input onInput={ e => setName( e.target.value ) } type="text" minLength={ 2 } placeholder='Dit navn...' required />
                 </label>
@@ -74,7 +80,7 @@ const ContactForm = () => {
                     <input onInput={ e => setPhone( e.target.value ) } type="tel" name="phone" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder='Dit telefonnummer...' required />
                 </label>
                 <label>Besked
-                    <textarea  onInput={ e => setMessage( e.target.value ) } placeholder='Din besked...'></textarea>
+                    <textarea onInput={ e => setMessage( e.target.value ) } placeholder='Din besked...'></textarea>
                 </label>
                 <button>Send besked</button>
                 { dataI && <h2 className='formSubmitText'>Tak for din besked</h2> }

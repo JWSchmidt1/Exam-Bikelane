@@ -1,0 +1,375 @@
+@import "variables";
+
+// ** ABOUT ** //
+// ** START ** //
+
+// ** ABOUT HERO ** //
+.aboutHeroCon {
+    padding: 8rem 7.5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+
+    .aboutHeroTitleCon {
+        .aboutHeroSub {
+            font-size: calc(0.8rem + 0.8vw);
+
+        }
+
+        .aboutHeroTitle {
+            font-size: calc(2.55rem + 2.55vw);
+            letter-spacing: -.15rem;
+        }
+    }
+
+    .aboutHeroTextCon {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        .aboutHeroText {
+            font-size: calc(.9rem + .9vw);
+            font-family: $font_second;
+            line-height: 4rem;
+            color: $dim-gray;
+            font-weight: 600;
+        }
+
+        .btn-second {
+            width: fit-content;
+        }
+    }
+
+    .aboutHeroImg {
+        grid-column: 1/3;
+        overflow: hidden;
+        margin-top: 4rem;
+        height: 60rem;
+        border-radius: 1rem;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// ** ABOUT TESTIMONIAL ** //
+.aboutTestimonial {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    padding: 0 7.5%;
+    background: $delft-blue;
+    background-image: url('../assets/images/backgrounds-og-patterns/pattern2.png');
+    position: relative;
+
+    .aboutTestimonialSectionOne {
+        padding: 12rem 0;
+
+    }
+
+    .aboutTestimonialSectionTwo {
+        position: relative;
+
+        img {
+            position: absolute;
+            height: 100%;
+            bottom: 0;
+        }
+    }
+
+    .aboutTestimonialTitle {
+        color: #fff;
+    }
+
+    .aboutTestimonialTextCon {
+        display: grid;
+        grid-template-columns: auto fit-content;
+        gap: 3rem;
+
+        .aboutTestimonialText {
+            font-size: calc(.6rem + .6vw);
+            font-family: $font_second;
+            color: #fff;
+            line-height: 3rem;
+            grid-column: 1;
+        }
+
+        .circleQuote {
+            grid-column: 2;
+            height: 9rem;
+            width: 9rem;
+            background-color: $blush;
+            border-radius: 50%;
+            position: relative;
+
+            .quoteIcon {
+                position: absolute;
+                font-size: 3.5rem;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+            }
+        }
+    }
+}
+
+// ** ABOUT GOALS ** //
+.aboutGoals {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 12rem 0;
+    position: relative;
+
+    .counterGoalsStats {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        font-family: $font_second;
+        text-align: center;
+        padding: 2rem 3rem;
+        position: relative;
+
+        .counterGoalsStatsIconCon {
+            font-size: calc(0.5rem + 0.5vw);
+            height: 3rem;
+            width: 3rem;
+            color: $blush;
+            border: 1px solid $blush;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .counterGoalsStatsIcon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .counter {
+            font-size: calc(1.9rem + 1.9vw);
+            color: $dark-purple;
+            font-family: $font_main;
+            font-weight: 700;
+        }
+
+        .counterGoalsStatsTitle {
+            font-size: calc(0.6rem + 0.6vw);
+            color: $dim-gray;
+            text-transform: uppercase;
+            padding-top: 2rem;
+        }
+    }
+}
+
+/* ************ TABLET ************ */
+@media only screen and (max-width: 1024px) and (min-width: 641px) {
+        // ** ABOUT HERO ** //
+.aboutHeroCon {
+    display: flex;
+    flex-direction: column;
+    padding: 8rem 7.5%;
+    gap: 2rem;
+  
+    .aboutHeroTitleCon {
+      .aboutHeroSub {
+        font-size: calc(1.5rem + 1.5vw);
+      }
+  
+      .aboutHeroTitle {
+        font-size: calc(3.5rem + 3.5vw);
+      }
+    }
+  
+    .aboutHeroTextCon {
+  
+      .aboutHeroText {
+        font-size: calc(1.3rem + 1.3vw);
+        color: $dim-gray;
+      }
+    }
+  
+    .aboutHeroImg {
+      overflow: hidden;
+      margin-top: 4rem;
+      height: 35rem;
+    }
+  }
+  
+  // ** ABOUT TESTIMONIAL ** //
+  .aboutTestimonial {
+    display: flex;
+    
+    padding: 0 7.5%;
+    background: $delft-blue;
+    background-image: url('../assets/images/backgrounds-og-patterns/pattern2.png');
+    position: relative;
+  
+    .aboutTestimonialSectionOne {
+      padding: 12rem 0;
+      z-index: 2;
+  
+    }
+  
+    .aboutTestimonialSectionTwo {
+      display: none;
+    }
+  
+    .aboutTestimonialTitle {
+      color: #fff;
+      font-size: calc(2.3rem + 2.3vw);
+    }
+  
+    .aboutTestimonialTextCon {
+  
+      .aboutTestimonialText {
+        font-size: calc(1.3rem + 1.3vw);
+      }
+  
+      .circleQuote {
+        margin-top: 25%;
+  
+        .quoteIcon {
+        }
+      }
+    }
+  }
+  
+  // ** ABOUT GOALS ** //
+  .aboutGoals {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 12rem 0;
+    position: relative;
+  
+    .counterGoalsStats {
+      padding: 2rem 3rem;
+  
+      .counterGoalsStatsIconCon {
+        font-size: calc(1rem + 1vw);
+        height: 3.5rem;
+        width: 3.5rem;
+      }
+  
+      .counter {
+        font-size: calc(4rem + 4vw);
+      }
+  
+      .counterGoalsStatsTitle {
+        font-size: calc(1.1rem + 1.1vw);
+      }
+    }
+  }
+}
+
+/* ************ PHONE ************ */
+@media only screen and (max-width: 640px) {
+    // ** ABOUT HERO ** //
+.aboutHeroCon {
+    padding: 8rem 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  
+    .aboutHeroTitleCon {
+      .aboutHeroSub {
+        font-size: calc(1.5rem + 1.5vw);
+      }
+  
+      .aboutHeroTitle {
+        font-size: calc(4.5rem + 4.5vw);
+      }
+    }
+  
+    .aboutHeroTextCon {
+  
+      .aboutHeroText {
+        font-size: calc(1.55rem + 1.55vw);
+        color: $dim-gray;
+      }
+    }
+  
+    .aboutHeroImg {
+      overflow: hidden;
+      margin-top: 8rem;
+      height: 35rem;
+    }
+  }
+  
+  // ** ABOUT TESTIMONIAL ** //
+  .aboutTestimonial {
+    display: flex;
+    flex-direction: column;
+    padding: 0 7.5%;
+    background: $delft-blue;
+    background-image: url('../assets/images/backgrounds-og-patterns/pattern2.png');
+    position: relative;
+  
+    .aboutTestimonialSectionOne {
+      padding: 12rem 0;
+  
+    }
+  
+    .aboutTestimonialSectionTwo {
+      position: relative;
+  
+      img {
+        position: static;
+        height: 100%;
+        bottom: 0;
+      }
+    }
+  
+    .aboutTestimonialTitle {
+      color: #fff;
+    }
+  
+    .aboutTestimonialTextCon {
+  
+      .aboutTestimonialText {
+        font-size: calc(1.3rem + 1.3vw);
+      }
+  
+      .circleQuote {
+        margin-top: 25%;
+  
+        .quoteIcon {
+        }
+      }
+    }
+  }
+  
+  // ** ABOUT GOALS ** //
+  .aboutGoals {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 12rem 0;
+    position: relative;
+  
+    .counterGoalsStats {
+      padding: 2rem 3rem;
+  
+      .counterGoalsStatsIconCon {
+        font-size: calc(1rem + 1vw);
+        height: 3.5rem;
+        width: 3.5rem;
+      }
+  
+      .counter {
+        font-size: calc(4rem + 4vw);
+      }
+  
+      .counterGoalsStatsTitle {
+        font-size: calc(1.1rem + 1.1vw);
+      }
+    }
+  }
+}

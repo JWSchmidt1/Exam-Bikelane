@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
 import { FaQuoteRight } from 'react-icons/fa'
 
+import ErrorMessage from '../../ErrorMessage'
+import Loader from '../../Loader'
 
 const AboutTestimonial = () => {
 
@@ -13,6 +15,10 @@ const AboutTestimonial = () => {
 
     return (
         <div className='aboutTestimonial'>
+
+            { error && <ErrorMessage /> }
+            { loading && <Loader /> }
+
             {
                 data &&
                 <>

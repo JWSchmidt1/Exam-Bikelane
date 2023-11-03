@@ -1,0 +1,7 @@
+@import "variables";
+
+/* ************ TABLET ************ */
+@media only screen and (max-width: 1024px) and (min-width: 641px) {}
+
+/* ************ PHONE ************ */
+@media only screen and (max-width: 640px) {}

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
 import { useNavigate } from 'react-router-dom'
+import Pagination from '../../Pagination'
+
+import ErrorMessage from '../../ErrorMessage'
+import Loader from '../../Loader'
+
 
 
 const EventsGallery = () => {
@@ -21,25 +26,25 @@ const EventsGallery = () => {
 
     return (
         <div className='eventsGalleryCon'>
+                { ( errorE || errorEC ) && <ErrorMessage /> }
+                { ( loadingE || loadingEC ) && <Loader /> }
             <ul className='eventsGalleryCategoryCon'>
                 <li onClick={ () => setFilter( '' ) } className='eventsGalleryCategory'>
                     <span>Alle Events</span>
                 </li>
                 {
 
-                    dataEC && dataEC.map( e =>
-                        <li onClick={ () => setFilter( e.category ) } className='eventsGalleryCategory'>
+                    dataEC && dataEC.map( ( e, index ) =>
+                        <li key={ index } onClick={ () => setFilter( e.category ) } className='eventsGalleryCategory'>
                             <span>{ e.category }</span>
                         </li>
                     )
                 }
             </ul>
             {
-                dataE && dataE.sort( function ( a, b ) {
-                    return new Date( a.eventdate ) - new Date( b.eventdate );
-                } ).filter( function ( e ) { return new Date( e.eventdate ) > dateNow } ).filter( ( e ) => filter === '' || e.category.category === filter ).map( ( e, index ) => (
+                dataE && dataE.sort( ( a, b ) => new Date( a.eventdate ) - new Date( b.eventdate ) ).filter( ( e ) => new Date( e.eventdate ) > dateNow ).filter( ( e ) => filter === '' || e.category.category === filter ).map( ( e, index ) => (
 
-                    <div onClick={() => navigate(e._id)} className='eventsGalleryImgCon' key={ index }>
+                    <div onClick={ () => navigate( e._id ) } className='eventsGalleryImgCon' key={ index }>
                         <div className='eventsGalleryImg'>
                             <img src={ `http://localhost:5888/images/event/${ e.image }` } alt={ e.image } />
                             <div className="overlay"></div>
@@ -50,7 +55,9 @@ const EventsGallery = () => {
                 )
                 )
             }
-
+            <div className='eventsGalleryPaginationCon'>
+                <Pagination />
+            </div>
         </div>
     )
 }

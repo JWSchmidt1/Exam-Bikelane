@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useGetData } from '../hooks/useRequestData'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 
+import ErrorMessage from './ErrorMessage'
+import Loader from './Loader'
+
 import { VscChevronDown } from 'react-icons/vsc'
+import { CgClose } from 'react-icons/cg'
 
 import logo from '../assets/images/logo/logo-black.png'
+import logowhite from '../assets/images/logo/logo-white.png'
 
 const Navbar = () => {
 
@@ -13,8 +18,6 @@ const Navbar = () => {
   const [ stickyClass, setStickyClass ] = useState( '' );
 
   useEffect( () => {
-    // getDataC( "http://localhost:5888/contactinformation" )
-    // getDataE( "http://localhost:5888/eventcategories" )
     getData( "http://localhost:5888/eventcategories" )
   }, [] )
 
@@ -31,10 +34,7 @@ const Navbar = () => {
     }
   };
 
-  const [ isActive, setActive ] = useState( false );
-
   const toggleClass = () => {
-    setActive( !isActive );
     document.getElementById( "menu" ).classList.toggle( "overlay" );
   };
 
@@ -42,20 +42,25 @@ const Navbar = () => {
 
   return (
     <nav className={ `navigation ${ stickyClass }` }>
+
+        { error && <ErrorMessage /> }
+        { loading && <Loader /> }
+      
       <Link to="" className='navLogo'><img className='navLogoImg' src={ logo } alt="logo-black" /></Link>
 
-
       {/* Burgermenu */ }
-      <div id="burger-menu" className={ isActive ? 'close' : null } onClick={ toggleClass } >
+      <div id="burger-menu" onClick={ toggleClass } >
         <span id="burger-box"></span>
       </div>
       <div id="menu">
         <ul id="menu__ul">
-          <li><Link to="">Forside</Link></li>
-          <li><Link to="about">Om os</Link></li>
-          <li><Link to="events">Events</Link></li>
-          <li><Link to="contact">Kontakt</Link></li>
-          <li><Link to="news">Nyheder</Link></li>
+          <CgClose onClick={ toggleClass } className='navMobileClose' />
+          <Link onClick={ toggleClass } to="" className='navBurgerLogo'><img className='navBurgerLogoImg' src={ logowhite } alt="logo-white" /></Link>
+          <li><Link onClick={ toggleClass } to="">Forside</Link></li>
+          <li><Link onClick={ toggleClass } to="about">Om os</Link></li>
+          <li><Link onClick={ toggleClass } to="events">Events</Link></li>
+          <li><Link onClick={ toggleClass } to="contact">Kontakt</Link></li>
+          <li><Link onClick={ toggleClass } to="news">Nyheder</Link></li>
         </ul>
       </div>
       {/*  */ }
@@ -91,8 +96,8 @@ const Navbar = () => {
           <ul>
             <li className="dropdowncontent" id="myDropdown">
               {
-                data && data.map( ( e ) =>
-                  <NavLink to={ `events/${ e._id }` }>{ e.category }</NavLink>
+                data && data.map( ( e, index ) =>
+                  <NavLink key={ index } to={ `events/${ e._id }` }>{ e.category }</NavLink>
                 )
               }
             </li>

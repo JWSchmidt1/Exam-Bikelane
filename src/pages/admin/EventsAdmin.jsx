@@ -36,11 +36,10 @@ const EventsAdmin = () => {
     return (
         <div className='eventsAdmin'>
             <h1 className='adminTitle title'>Administrerer Events</h1>
+            { dataDelete && <h2 className='adminTitle'>Event slettet</h2> }
 
-            <div className='systemMessage'>
-                { ( error || errorDelete ) && <ErrorMessage errorMessage="Admin events" /> }
+                { ( error || errorDelete ) && <ErrorMessage /> }
                 { ( loading || loadingDelete ) && <Loader /> }
-            </div>
 
             <table>
                 <thead>
@@ -70,7 +69,7 @@ const EventsAdmin = () => {
                                         <AiFillEdit className="editIcon" />
                                     </Link>
                                 </td>
-                                <td  className='iconCon'>
+                                <td className='iconCon'>
                                     <AiFillDelete className="deleteIcon" onClick={ () => handleDelete( n._id, n.title ) } />
                                 </td>
                             </tr>

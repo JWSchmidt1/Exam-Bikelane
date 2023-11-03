@@ -1,0 +1,279 @@
+@import "variables";
+
+// ** KONTAKT ** //
+// ** START ** //
+
+// ** KONTAKT HERO ** //
+.contactHero {
+  padding: 30rem 7.5% 22rem 7.5%;
+  text-align: center;
+  background-image: url("../assets/images/backgrounds-og-patterns/bg1.jpg");
+  background-size: cover;
+
+  .contactHeroCon {
+    position: relative;
+  }
+
+  .contactTitle {
+    padding: 1rem 0;
+    color: #fff;
+    font-size: calc(2.45rem + 2.45vw);
+    padding-bottom: 8rem;
+  }
+
+  .contactSub {
+    color: #fff;
+    font-size: calc(.7rem + .7vw);
+    font-family: $font_second;
+  }
+
+  .contactHeroImgCon {
+    display: flex;
+    width: 100%;
+    height: 60rem;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    // bottom: 40rem;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+// ** KONTAKT FORM ** //
+.contactFormCon {
+  padding: 50rem 7.5% 12rem 7.5%;
+  background-image: url('../assets/images/backgrounds-og-patterns/bg4.png');
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 30% auto;
+  gap: 4rem;
+
+  .contactFormAddress {
+    grid-column: 1;
+    background: #c5c4da30;
+    border-radius: 1rem;
+    padding: 5rem 3rem;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: fit-content;
+
+
+    .contactAddressInfo {
+      font-family: $font_second;
+      font-size: calc(.7rem + .7vw);
+      color: $davy-gray;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+
+      .addressicon {
+        width: 4rem;
+        height: 4rem;
+        position: relative;
+        background-color: rgba(230, 215, 214, 0.694);
+        border-radius: 50%;
+        margin-right: 1rem;
+
+        .contactAddressIcon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: $blush;
+        }
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    font-family: $font_second;
+    font-size: calc(.65rem + .65vw);
+    gap: 2rem;
+    position: relative;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      color: $dim-gray;
+      gap: .5rem;
+    }
+
+    input,
+    textarea {
+      padding: 2rem;
+      border: 1px solid rgba(128, 128, 128, 0.479);
+      border-radius: .5rem;
+
+      &::placeholder {
+        font-size: calc(.65rem + .65vw);
+      }
+    }
+
+    textarea {
+      font-family: inherit;
+      padding-bottom: 14rem;
+    }
+
+    button {
+      border: none;
+      background: $dark-purple;
+      font-size: calc(.75rem + .75vw);
+      color: #fff;
+      width: fit-content;
+      border-radius: .5rem;
+      padding: 2.5rem 4rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  .formSubmitText {
+    position: absolute;
+    top: 100%;
+  }
+}
+
+.googleMaps {
+  border: none;
+  width: 100%;
+  height: 55rem;
+}
+
+// ** END ** //
+
+/* ************ TABLET ************ */
+@media only screen and (max-width: 1024px) and (min-width: 641px) {
+
+  // ** KONTAKT HERO ** //
+  .contactHero {
+    padding: 24rem 5% 22rem 5%;
+    background-image: url("../assets/images/backgrounds-og-patterns/bg1.jpg");
+    background-size: cover;
+
+    .contactTitle {
+      font-size: calc(4.5rem + 4.5vw);
+    }
+
+    .contactSub {
+      font-size: calc(1.2rem + 1.2vw);
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // ** KONTAKT FORM ** //
+  .contactFormCon {
+    padding: 50rem 7.5% 12rem 7.5%;
+    background-image: url('../assets/images/backgrounds-og-patterns/bg4.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+    .contactFormAddress {
+
+      .contactAddressInfo {
+        font-size: calc(1.2rem + 1.2vw);
+      }
+    }
+
+    form {
+      font-size: calc(1rem + 1vw);
+
+      input,
+      textarea {
+
+        &::placeholder {
+          font-size: calc(1rem + 1vw);
+        }
+      }
+
+      textarea {
+        font-family: inherit;
+        padding-bottom: 14rem;
+      }
+
+      button {
+        font-size: calc(1.1rem + 1.1vw);
+      }
+    }
+  }
+}
+
+/* ************ PHONE ************ */
+@media only screen and (max-width: 640px) {
+
+
+  // ** KONTAKT HERO ** //
+  .contactHero {
+    padding: 24rem 5% 22rem 5%;
+    background-image: url("../assets/images/backgrounds-og-patterns/bg1.jpg");
+    background-size: cover;
+
+    .contactTitle {
+      font-size: calc(4.5rem + 4.5vw);
+    }
+
+    .contactSub {
+      font-size: calc(1.2rem + 1.2vw);
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // ** KONTAKT FORM ** //
+  .contactFormCon {
+    padding: 50rem 7.5% 12rem 7.5%;
+    background-image: url('../assets/images/backgrounds-og-patterns/bg4.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+    .contactFormAddress {
+
+      .contactAddressInfo {
+        font-size: calc(1.2rem + 1.2vw);
+      }
+    }
+
+    form {
+      font-size: calc(1rem + 1vw);
+
+      input,
+      textarea {
+
+        &::placeholder {
+          font-size: calc(1rem + 1vw);
+        }
+      }
+
+      textarea {
+        font-family: inherit;
+        padding-bottom: 14rem;
+      }
+
+      button {
+        font-size: calc(1.1rem + 1.1vw);
+      }
+    }
+  }
+
+}

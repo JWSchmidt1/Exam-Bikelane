@@ -83,3 +83,99 @@
       }
     }
   }
+
+  /* ************ TABLET ************ */
+@media only screen and (max-width: 1024px) and (min-width: 641px) {
+  .communityCon {
+    display: flex;
+    flex-direction: column;
+    padding: 10rem 7.5% 14rem 7.5%;
+    gap: 5rem;
+  
+    .communityTextCon {
+  
+      .communitySuptitle {
+        font-size: calc(1.2rem + 1.2vw);
+        font-weight: 400;
+      }
+  
+      .communityTitle {
+        font-size: calc(2.8rem + 2.8vw);
+        letter-spacing: -.15rem;
+      }
+  
+      .communityText {
+        font-size: calc(1rem + 1vw);
+        color: $davy-gray;
+        line-height: 3rem;
+        padding-bottom: 4rem;
+      }
+  
+      .communityKeypointsCon {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem 4rem;
+  
+        .communityKeypoints {
+          display: grid;
+          grid-template-columns: 2.5rem auto;
+          font-size: calc(1.1rem + 1.1vw);
+          color: $dim-gray;
+          gap: 1.5rem;
+        }
+  
+        .keypointCheckmark {
+          background-color: #d45d792f;
+        }
+      }
+    }
+  }
+}
+
+/* ************ PHONE ************ */
+@media only screen and (max-width: 640px) {
+  .communityCon {
+    display: flex;
+    flex-direction: column;
+    padding: 10rem 5% 14rem 5%;
+    gap: 5rem;
+  
+    .communityTextCon {
+  
+      .communitySuptitle {
+        font-size: calc(1.5rem + 1.5vw);
+        font-weight: 400;
+      }
+  
+      .communityTitle {
+        font-size: calc(3.1rem + 3.1vw);
+        letter-spacing: -.15rem;
+      }
+  
+      .communityText {
+        font-size: calc(1.2rem + 1.2vw);
+        color: $davy-gray;
+        line-height: 3rem;
+        padding-bottom: 4rem;
+      }
+  
+      .communityKeypointsCon {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem 4rem;
+  
+        .communityKeypoints {
+          display: grid;
+          grid-template-columns: 2.5rem auto;
+          font-size: calc(1.3rem + 1.3vw);
+          color: $dim-gray;
+          gap: 1.5rem;
+        }
+  
+        .keypointCheckmark {
+          background-color: #d45d792f;
+        }
+      }
+    }
+  }
+}

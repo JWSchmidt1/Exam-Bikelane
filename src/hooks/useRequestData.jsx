@@ -1,20 +1,12 @@
 import { useState } from 'react'
 import axios from 'axios';
 
-// Vigtig ved authentication med session-cookie
 axios.defaults.withCredentials = true
-
-// eller sættes i hver fx ( url, { headers: headers, params: params, withCredentials = true } )
-
-// const axiosBase = axios.create( { baseURL: "http://localhost:5111/api/" } )
-// let response = axiosBase.get( "tours/teaser" );
 
 
 // --- AXIOS GET DATA
 export const useGetData = () => {
 
-
-    // States til håndtering af data, loading, error
     const [ data, setData ] = useState()
     const [ error, setError ] = useState( false )
     const [ loading, setLoading ] = useState( false )
@@ -22,22 +14,20 @@ export const useGetData = () => {
     const getData = ( url, headers = null, params = null ) => {
 
 
-        setLoading( true )              // api'et "ringes op om lidt" så sæt loading til true
-        //setData() // her kan du tømme state med data, hvis de bør nulstilles/fjernes inden hentning af nye data
+        setLoading( true )
 
 
         axios.get( url, { headers: headers, params: params } )
             .then( res => {
-                console.log( res.data )
-                setData( res.data )     // success - der er data - put dem i state
-                setError( false )       // ... så ingen fejl
+                setData( res.data )
+                setError( false )
             } )
             .catch( err => {
-                setError( true )        // ups fejl
-                setData()               // ... så tøm data der KAN være fejlagtige
+                setError( true )
+                setData()
             } )
             .finally( () => {
-                setLoading( false )     // uanset om der er data eller fejl så - finally - stop loading
+                setLoading( false )
             } )
     }
 
@@ -54,24 +44,21 @@ export const usePostData = () => {
     const [ error, setError ] = useState( false )
     const [ loading, setLoading ] = useState( false )
 
-
-    // payload er de data der skal postes/oprettes
     const postData = ( url, payload = null, headers = null, params = null ) => {
 
-        setLoading( true )              // api'et "ringes op om lidt" så sæt loading til true
+        setLoading( true )
 
         axios.post( url, payload, { headers: headers, params: params } )
             .then( res => {
-                console.log( res.data )
-                setData( res.data )     // success - der er data - put dem i state
-                setError( false )       // ... så ingen fejl
+                setData( res.data )
+                setError( false )
             } )
             .catch( err => {
-                setError( true )        // ups fejl
-                setData()               // ... så tøm data der KAN være fejlagtige
+                setError( true )
+                setData()
             } )
             .finally( () => {
-                setLoading( false )     // uanset om der er data eller fejl så - finally - stop loading
+                setLoading( false )
             } )
     }
 
@@ -88,28 +75,24 @@ export const usePutData = () => {
     const [ loading, setLoading ] = useState( false )
 
 
-    // payload er de data der skal put/rettes
     const putData = ( url, payload = null, headers = null, params = null ) => {
 
-        setLoading( true )              // api'et "ringes op om lidt" så sæt loading til true
+        setLoading( true )
 
         axios.put( url, payload, { headers: headers, params: params } )
             .then( res => {
-                console.log( res.data )
-                setData( res.data )     // success - der er data - put dem i state
-                setError( false )       // ... så ingen fejl
+                setData( res.data )
+                setError( false )
             } )
             .catch( err => {
-                setError( true )        // ups fejl
-                setData()               // ... så tøm data der KAN være fejlagtige
+                setError( true )
+                setData()
             } )
             .finally( () => {
-                setLoading( false )     // uanset om der er data eller fejl så - finally - stop loading
+                setLoading( false )
             } )
     }
 
-
-    // det der "udbydes" fra hooket her
     return { putData, error, loading, data }
 }
 
@@ -121,27 +104,24 @@ export const usePatchData = () => {
     const [ error, setError ] = useState( false )
     const [ loading, setLoading ] = useState( false )
 
-    // payload er de data der skal patches/rettes
     const patchData = ( url, payload = null, headers = null, params = null ) => {
 
-        setLoading( true )              // api'et "ringes op om lidt" så sæt loading til true
+        setLoading( true )
 
         axios.patch( url, payload, { headers: headers, params: params } )
             .then( res => {
-                console.log( res.data )
-                setData( res.data )     // success - der er data - put dem i state
-                setError( false )       // ... så ingen fejl
+                setData( res.data )
+                setError( false )
             } )
             .catch( err => {
-                setError( true )        // ups fejl
-                setData()               // ... så tøm data der KAN være fejlagtige
+                setError( true )
+                setData()
             } )
             .finally( () => {
-                setLoading( false )     // uanset om der er data eller fejl så - finally - stop loading
+                setLoading( false )
             } )
     }
 
-    // det der "udbydes" fra hooket her
     return { patchData, error, loading, data }
 }
 
@@ -149,33 +129,27 @@ export const usePatchData = () => {
 // --- AXIOS DELETE DATA
 export const useDeleteData = () => {
 
-    // States til håndtering af data, loading, error
     const [ data, setData ] = useState()
     const [ error, setError ] = useState( false )
     const [ loading, setLoading ] = useState( false )
 
-    // headers og params af hensyn til fx RapidAPI
     const deleteData = ( url, headers = null, params = null ) => {
 
-        setLoading( true )              // api'et "ringes op om lidt" så sæt loading til true
-
-        //setData()                     // her kan du tømme state med data, hvis de bør nulstilles/fjernes inden hentning af nye data
+        setLoading( true )
 
         axios.delete( url, { headers: headers, params: params } )
             .then( res => {
-                console.log( res.data )
-                setData( res.data )     // success - der er data - put dem i state
-                setError( false )       // ... så ingen fejl
+                setData( res.data )
+                setError( false )
             } )
             .catch( err => {
-                setError( true )        // ups fejl
-                setData()               // ... så tøm data der KAN være fejlagtige
+                setError( true )
+                setData()
             } )
             .finally( () => {
-                setLoading( false )     // uanset om der er data eller fejl så - finally - stop loading
+                setLoading( false )
             } )
     }
 
-    // det der "udbydes" fra hooket her
     return { deleteData, error, loading, data }
 }

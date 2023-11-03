@@ -1,0 +1,313 @@
+@import "variables";
+
+// ** FOOTER ** //
+// ** START ** //
+
+footer {
+    background: rgb(11, 14, 31);
+    background-image: url("../assets/images/backgrounds-og-patterns/contour.png");
+    background-size: cover;
+    position: relative;
+    padding: 0 7.5%;
+
+    .footerSections {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        position: relative;
+        gap: 4rem;
+        padding-top: 10rem;
+        font-family: $font_main;
+
+        nav {
+            margin-top: 3.5rem;
+
+            li {
+                list-style: none;
+                margin-bottom: 2rem;
+
+                a {
+                    text-decoration: none;
+                    color: $silver;
+                    font-size: calc(0.55rem + 0.55vw);
+                    display: flex;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        color: $blush;
+                    }
+
+                    &:hover>.footerChevron {
+                        transform: translateX(0.5rem);
+                    }
+                }
+
+                .footerChevron {
+                    align-self: center;
+                    color: $blush;
+                    font-size: calc(0.65rem + 0.65vw);
+                    transition: all 0.3s ease;
+                    margin-right: 0.2rem;
+                }
+            }
+        }
+
+        p {
+            color: $silver;
+            font-size: calc(0.5rem + 0.5vw);
+        }
+
+        h2 {
+            color: #fff;
+            font-size: calc(0.65rem + 0.65vw);
+            padding-bottom: 3.5rem;
+            border-bottom: 1px solid #80808050;
+        }
+
+        .footerAddress {
+            .footerLogo {
+                img {
+                    width: 33%;
+                    padding-bottom: 4rem;
+                }
+            }
+
+            address {
+                padding-top: 4rem;
+                font-style: normal;
+            }
+
+            .footerAddressIconCon {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                gap: 0.3rem;
+
+                span {
+                    padding: 1rem;
+                    background-color: #aaaaaa36;
+                    border-radius: 50%;
+                }
+            }
+
+            .footerAddressIcon {
+                color: $blush;
+                font-size: calc(0.5rem + 0.5vw);
+            }
+        }
+
+        .footerEvents {}
+
+        .footerGallery {
+            width: fit-content;
+
+            .footerGalleryImgs {
+                margin-top: 3.5rem;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .footerGalleryImgsCon {
+                overflow: hidden;
+                border-radius: 0.5rem;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    transform: rotate(-10deg) scale(1.2);
+                }
+            }
+        }
+
+        .footerCopyright {
+            padding: 6rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #80808050;
+            grid-column: 1/5;
+            font-family: $font_second;
+            font-size: calc(0.55rem + 0.55vw);
+        }
+    }
+}
+
+// ** END ** //
+
+/* ************ TABLET ************ */
+@media only screen and (max-width: 1024px) and (min-width: 641px) {
+    footer {
+        background: rgb(11, 14, 31);
+        background-image: url("../assets/images/backgrounds-og-patterns/contour.png");
+        background-size: cover;
+        padding: 0 5%;
+        
+        .footerSections {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            flex-direction: column;
+            gap: 8rem 4rem;
+            padding-top: 10rem;
+
+            nav {
+
+                li {
+
+                    a {
+                        font-size: calc(1rem + 1vw);
+                    }
+
+                    .footerChevron {
+                        font-size: calc(1.2rem + 1.2vw);
+                    }
+                }
+            }
+
+            p {
+                font-size: calc(1rem + 1vw);
+            }
+
+            h2 {
+                color: #fff;
+                font-size: calc(1.2rem + 1.2vw);
+                padding-bottom: 3.5rem;
+                border-bottom: 1px solid #80808050;
+            }
+
+            .footerAddress {
+                .footerLogo {
+                    img {
+                        width: 33%;
+                    }
+                }
+
+                .footerAddressIconCon {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: .5rem;
+                    gap: .5rem;
+
+                    span {
+                        padding: 1rem;
+                        background-color: #aaaaaa30;
+                        border-radius: 50%;
+                    }
+                }
+
+                .footerAddressIcon {
+                    color: $blush;
+                    font-size: calc(1rem + 1vw);
+                }
+            }
+
+            .footerEvents {}
+
+            .footerGallery {
+                width: fit-content;
+                grid-row: 1;
+                grid-column: 2;
+
+                .footerGalleryImgs {
+                    margin-top: 3.5rem;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1rem;
+                }
+            }
+
+            .footerCopyright {
+                font-size: calc(1rem + 1vw);
+                grid-column: 1/3;
+            }
+        }
+    }
+}
+
+/* ************ PHONE ************ */
+@media only screen and (max-width: 640px) {
+    footer {
+        background: rgb(11, 14, 31);
+        background-image: url("../assets/images/backgrounds-og-patterns/contour.png");
+        background-size: cover;
+        padding: 0 5%;
+
+        .footerSections {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            padding-top: 10rem;
+
+            nav {
+
+                li {
+
+                    a {
+                        font-size: calc(1rem + 1vw);
+                    }
+
+                    .footerChevron {
+                        font-size: calc(1.2rem + 1.2vw);
+                    }
+                }
+            }
+
+            p {
+                font-size: calc(1rem + 1vw);
+            }
+
+            h2 {
+                color: #fff;
+                font-size: calc(1.2rem + 1.2vw);
+                padding-bottom: 3.5rem;
+                border-bottom: 1px solid #80808050;
+            }
+
+            .footerAddress {
+                .footerLogo {
+                    img {
+                        width: 25%;
+                    }
+                }
+
+                .footerAddressIconCon {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: .5rem;
+                    gap: .5rem;
+
+                    span {
+                        padding: 1rem;
+                        background-color: #aaaaaa30;
+                        border-radius: 50%;
+                    }
+                }
+
+                .footerAddressIcon {
+                    color: $blush;
+                    font-size: calc(1rem + 1vw);
+                }
+            }
+
+            .footerEvents {}
+
+            .footerGallery {
+                width: fit-content;
+
+                .footerGalleryImgs {
+                    margin-top: 3.5rem;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1rem;
+                }
+            }
+
+            .footerCopyright {
+                font-size: calc(1rem + 1vw);
+            }
+        }
+    }
+}

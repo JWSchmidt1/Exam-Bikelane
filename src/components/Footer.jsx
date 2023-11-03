@@ -1,6 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useGetData } from '../hooks/useRequestData'
 import { Link } from 'react-router-dom'
+
+import ErrorMessage from "./ErrorMessage";
+import Loader from "./Loader";
 
 import { BiChevronRight } from 'react-icons/bi'
 import { FiMail } from 'react-icons/fi'
@@ -12,25 +15,24 @@ import logowhite from '../assets/images/logo/logo-white.png'
 const Footer = () => {
 
   const { error, loading, data, getData } = useGetData()
-  const { error: errorEvent, loading: loadingEvent, data: dataEvent, getData: getDataEvent } = useGetData()
+  const { error: errorE, loading: loadingE, data: dataE, getData: getDataE } = useGetData()
 
   const [ openLightbox, setOpenLightbox ] = useState( false )
   const [ selectedImg, setSelectedImg ] = useState()
 
-  // const img = useRef()
-
   useEffect( () => {
     getData( "http://localhost:5888/contactinformation" )
-    getDataEvent( "http://localhost:5888/events" )
+    getDataE( "http://localhost:5888/events" )
   }, [] )
 
-  // function handleClick ( e ) {
-  //   img.current.src = []
-  // }
+  const dateNow = new Date()
 
 
   return (
     <>
+        { ( error || errorE ) && <ErrorMessage /> }
+        { ( loading || loadingE ) && <Loader /> }
+
       <div className='footerSections'>
         <section className='footerAddress'>
           { data &&
@@ -54,9 +56,9 @@ const Footer = () => {
           <nav>
             <ul>
               {
-                dataEvent && dataEvent.slice( 0, 4 ).map( (e, index) =>
-                  <li key={index}>
-                    <Link><BiChevronRight className='footerChevron' /> { e.title }</Link>
+                dataE && dataE.sort( ( a, b ) => new Date( a.eventdate ) - new Date( b.eventdate ) ).filter( ( e ) => new Date( e.eventdate ) > dateNow ).slice( 0, 4 ).map( ( e, index ) =>
+                  <li key={ index }>
+                    <Link to={ `events/${ e._id }` }><BiChevronRight className='footerChevron' /> { e.title }</Link>
                   </li>
                 )
               }
@@ -88,7 +90,7 @@ const Footer = () => {
           <h2>Galleri</h2>
           <div className='footerGalleryImgs'>
             {
-              dataEvent && dataEvent.slice( 0, 6 ).map( ( e, index ) =>
+              dataE && dataE.slice( 0, 6 ).map( ( e, index ) =>
                 <div onClick={ () => { setOpenLightbox( true ); setSelectedImg( e.image ) } } key={ index } className='footerGalleryImgsCon'>
                   <img src={ `http://localhost:5888/images/event/${ e.image }` } />
                 </div>

@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import { useGetData } from '../../../hooks/useRequestData'
 import bgimg from '../../../assets/images/backgrounds-og-patterns/bikes-image.png'
 
+import ErrorMessage from '../../ErrorMessage'
+import Loader from '../../Loader'
+
 const ContactHero = () => {
 
     const { error, loading, data, getData } = useGetData()
@@ -11,13 +14,16 @@ const ContactHero = () => {
     }, [] )
 
     return (
-        <div className='kontaktHero'>
+        <div className='contactHero'>
+
+                { error && <ErrorMessage /> }
+                { loading && <Loader /> }
             {
                 data &&
-                <section className='kontaktHeroCon'>
-                    <h3 className="subtitle kontaktSub">{ data[ 4 ].suptitle }</h3>
-                    <h2 className="title kontaktTitle">{ data[ 4 ].title }</h2>
-                    <div className='kontaktHeroImgCon'>
+                <section className='contactHeroCon'>
+                    <h3 className="subtitle contactSub">{ data[ 4 ].suptitle }</h3>
+                    <h2 className="title contactTitle">{ data[ 4 ].title }</h2>
+                    <div className='contactHeroImgCon'>
                         <img src={ bgimg } alt="" />
                     </div>
                 </section>
