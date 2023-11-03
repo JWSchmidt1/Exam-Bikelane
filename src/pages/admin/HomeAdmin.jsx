@@ -11,7 +11,6 @@ const HomeAdmin = () => {
 
     useEffect( () => {
         getData( "http://localhost:5888/heros" )
-        putData( "http://localhost:5888/heros/admin" )
     }, [] )
 
     const handleSubmit = ( e ) => {
@@ -31,13 +30,13 @@ const HomeAdmin = () => {
             <h1 className='adminTitle title'>Administrerer Forside Hero</h1>
             { dataEdit && <h2 className='adminTitle'>Forsiden er rettet</h2> }
 
-                { error && <ErrorMessage /> }
-                { ( loading || loadingEdit ) && <Loader /> }
+            { ( error || errorEdit ) && <ErrorMessage /> }
+            { ( loading || loadingEdit ) && <Loader /> }
 
             {
                 data &&
                 <section className='adminFormCon'>
-                    <form onSubmit={handleSubmit} className='adminForm'>
+                    <form onSubmit={ handleSubmit } className='adminForm'>
                         <label className='homeAdminTitle'>Titel
                             <input type="text" defaultValue={ data[ 0 ].title } />
                         </label>

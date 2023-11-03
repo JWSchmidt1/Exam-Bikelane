@@ -17,8 +17,6 @@ const ContactAdmin = () => {
 
   }, [] )
 
-  const dateNow = new Date();
-
   return (
     <div className='contactAdminCon'>
       <h1 className='adminTitle title'>Administrerer Events</h1>
