@@ -30,8 +30,8 @@ const Footer = () => {
 
   return (
     <>
-        { ( error || errorE ) && <ErrorMessage /> }
-        { ( loading || loadingE ) && <Loader /> }
+      { ( error || errorE ) && <ErrorMessage /> }
+      { ( loading || loadingE ) && <Loader /> }
 
       <div className='footerSections'>
         <section className='footerAddress'>
@@ -92,7 +92,7 @@ const Footer = () => {
             {
               dataE && dataE.slice( 0, 6 ).map( ( e, index ) =>
                 <div onClick={ () => { setOpenLightbox( true ); setSelectedImg( e.image ) } } key={ index } className='footerGalleryImgsCon'>
-                  <img src={ `http://localhost:5888/images/event/${ e.image }` } />
+                  <img src={ `http://localhost:5888/images/event/${ e.image }` } alt={ e.image } />
                 </div>
               )
             }
@@ -101,9 +101,18 @@ const Footer = () => {
         <p className='footerCopyright'>© Copyright 2012 Bikelane.</p>
         {
           openLightbox ? (
-            <div className='modalOverlay'>
+            <div className='lightBoxOverlay'>
               <CgClose onClick={ () => setOpenLightbox( false ) } className='modalClose' />
-              <img src={ `http://localhost:5888/images/event/${ selectedImg }` } alt="" />
+              <div className="lightBoxSelectedCon">
+                <img className='lightBoxSelected' src={ `http://localhost:5888/images/event/${ selectedImg }` } alt={ selectedImg } />
+              </div>
+              {
+                dataE && dataE.slice( 0, 6 ).map( ( e, index ) =>
+                  <div onClick={ () => { setSelectedImg( e.image ) } } key={ index } className='lightBoxThumbs'>
+                    <img src={ `http://localhost:5888/images/event/${ e.image }` } alt={ e.image } />
+                  </div>
+                )
+              }
             </div>
           ) : ( <></> )
         }

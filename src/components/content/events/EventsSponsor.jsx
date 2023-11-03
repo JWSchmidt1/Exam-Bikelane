@@ -18,8 +18,8 @@ const EventsSponsor = () => {
     return (
         <div className='eventsSponsorCon'>
 
-                { ( errorH || errorS ) && <ErrorMessage /> }
-                { ( loadingH || loadingS ) && <Loader /> }
+            { ( errorH || errorS ) && <ErrorMessage /> }
+            { ( loadingH || loadingS ) && <Loader /> }
 
             <section className="eventsSponsorHero">
                 {
@@ -30,9 +30,9 @@ const EventsSponsor = () => {
                 }
             </section>
             <div className="eventsSponsorSliderCon">
-                { dataS && dataS.map( e =>
-                    <div className='eventsSponsorSliderImg'>
-                        <img src={ `http://localhost:5888/images/sponsor/${ e.logo }` } alt="" />
+                { dataS && dataS.map( (e, index) =>
+                    <div key={index} className='eventsSponsorSliderImg'>
+                        <img src={ `http://localhost:5888/images/sponsor/${ e.logo }` } alt={ e.logo } />
                     </div>
                 )
                 }

@@ -16,8 +16,8 @@ const HomeAbout = () => {
     return (
         <div className='homeAboutCon'>
 
-                { error && <ErrorMessage /> }
-                { loading  && <Loader /> }
+            { error && <ErrorMessage /> }
+            { loading && <Loader /> }
 
             <section className='homeAboutHero'>
                 <h3 className="subtitle homeAboutSub">Hvem er vi</h3>
@@ -28,7 +28,7 @@ const HomeAbout = () => {
                 {
                     data && data.slice( 0, 4 ).map( ( e, index ) =>
                         <div className='homeAboutImgCon' key={ index }>
-                            <img src={ `http://localhost:5888/images/testimonial/${ e.image }` } alt="" />
+                            <img src={ `http://localhost:5888/images/testimonial/${ e.image }` } alt={ e.image } />
                             <div className='homeAboutSocialsCon'>
                                 <div className="homeAboutSocialIconCon"><BiLogoFacebook className="homeAboutSocialIcon" /></div>
                                 <div className="homeAboutSocialIconCon"><BiLogoInstagram className="homeAboutSocialIcon" /></div>

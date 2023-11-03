@@ -61,10 +61,10 @@ const ContactForm = () => {
                 {
                     dataC &&
                     <>
-                        <p className='contactAddressInfo'><div className='addressicon'><FaRegBuilding className='contactAddressIcon' /></div> Klubhuset i Grenå</p>
-                        <p className='contactAddressInfo'><div className='addressicon'><BiMap className='contactAddressIcon' /></div> { dataC.address }, { dataC.zipcity }</p>
-                        <p className='contactAddressInfo'><div className='addressicon'><PiClockAfternoonBold className='contactAddressIcon' /></div> { dataC.openinghours }</p>
-                        <p className='contactAddressInfo'><div className='addressicon'><FiMail className='contactAddressIcon' /></div> { dataC.email }</p>
+                        <div className='contactAddressInfo'><div className='addressicon'><FaRegBuilding className='contactAddressIcon' /></div> Klubhuset i Grenå</div>
+                        <div className='contactAddressInfo'><div className='addressicon'><BiMap className='contactAddressIcon' /></div> { dataC.address }, { dataC.zipcity }</div>
+                        <div className='contactAddressInfo'><div className='addressicon'><PiClockAfternoonBold className='contactAddressIcon' /></div> { dataC.openinghours }</div>
+                        <div className='contactAddressInfo'><div className='addressicon'><FiMail className='contactAddressIcon' /></div> { dataC.email }</div>
                     </>
                 }
             </address>

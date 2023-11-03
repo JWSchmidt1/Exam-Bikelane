@@ -31,7 +31,7 @@ const AboutTestimonial = () => {
                         </div>
                     </section>
                     <section className='aboutTestimonialSectionTwo'>
-                        <img src={ `http://localhost:5888/images/hero/${ data[ 3 ].image }` } alt="" />
+                        <img src={ `http://localhost:5888/images/hero/${ data[ 3 ].image }` } alt={ data[ 3 ].image } />
                     </section>
                 </>
             }

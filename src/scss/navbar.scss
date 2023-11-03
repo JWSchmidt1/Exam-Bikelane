@@ -326,15 +326,6 @@ body:has(.contactHero) {
       }
     }
   
-    .sticky-nav {
-      position: fixed;
-      top: 1rem;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 85%;
-    }
-  
     .navigation {
       position: relative;
       height: 10rem;
@@ -352,6 +343,16 @@ body:has(.contactHero) {
         border-bottom: 4px solid $blush;
       }
     }
+    
+    .sticky-nav {
+      position: fixed;
+      top: 1rem;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 85%;
+    }
+  
   }
   
   body:has(.contactHero) {
@@ -446,16 +447,7 @@ body:has(.contactHero) {
     .headerTextCon {
       display: none;
     }
-  
-    .sticky-nav {
-      position: fixed;
-      top: 1rem;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 85%;
-    }
-  
+
     .navigation {
       position: relative;
       height: 8rem;
@@ -473,6 +465,16 @@ body:has(.contactHero) {
         border-bottom: 4px solid $blush;
       }
     }
+  
+    .sticky-nav {
+      position: fixed;
+      top: 1rem;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 85%;
+    }
+  
   }
   
   body:has(.contactHero) {

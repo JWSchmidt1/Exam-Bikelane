@@ -71,6 +71,49 @@ button {
   }
 }
 
+.lightBoxOverlay {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 150;
+  background-color: #000000dd;
+  padding: 10rem 20rem;
+
+  .lightBoxSelectedCon {
+    grid-column: 1/7;
+    height: 100%;
+    overflow: hidden;
+
+    .lightBoxSelected {
+      object-fit: cover;
+    }
+  }
+
+  .lightBoxThumbs {
+    cursor: pointer;
+  }
+
+  .modalClose {
+    position: absolute;
+    font-size: calc(1rem + 1vw);
+    color: #fff;
+    top: 3rem;
+    right: 3rem;
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .modalOverlay {
   display: flex;
   align-items: center;
@@ -191,6 +234,50 @@ button {
     font-size: calc(.8rem + .8vw);
   }
 
+  .lightBoxOverlay {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 150;
+    background-color: #000000dd;
+    padding: 10rem 5rem;
+  
+    .lightBoxSelectedCon {
+      grid-column: 1/7;
+      height: 100%;
+      overflow: hidden;
+  
+      .lightBoxSelected {
+        object-fit: cover;
+      }
+    }
+  
+    .lightBoxThumbs {
+      cursor: pointer;
+      height: 7rem;
+    }
+  
+    .modalClose {
+      position: absolute;
+      font-size: calc(1rem + 1vw);
+      color: #fff;
+      top: 3rem;
+      right: 3rem;
+      cursor: pointer;
+    }
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   .modalOverlay {
     display: flex;
     align-items: center;
@@ -242,6 +329,50 @@ button {
   .btn,
   .btn-second {
     font-size: calc(1.1rem + 1.1vw);
+  }
+
+  .lightBoxOverlay {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 150;
+    background-color: #000000dd;
+    padding: 10rem 5rem;
+  
+    .lightBoxSelectedCon {
+      grid-column: 1/7;
+      height: 100%;
+      overflow: hidden;
+  
+      .lightBoxSelected {
+        object-fit: cover;
+      }
+    }
+  
+    .lightBoxThumbs {
+      cursor: pointer;
+      height: 7rem;
+    }
+  
+    .modalClose {
+      position: absolute;
+      font-size: calc(1rem + 1vw);
+      color: #fff;
+      top: 3rem;
+      right: 3rem;
+      cursor: pointer;
+    }
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .modalOverlay {

@@ -59,10 +59,9 @@ const AdminNavbar = () => {
           <CgClose onClick={ toggleClass } className='navMobileClose' />
           <Link onClick={ toggleClass } to="" className='navBurgerLogo'><img className='navBurgerLogoImg' src={ logowhite } alt="logo-white" /></Link>
           <li><Link onClick={ toggleClass } to="/admin">Forside Admin</Link></li>
-          <li><Link onClick={ toggleClass } to="aboutadmin">Om os Admin</Link></li>
-          <li><Link onClick={ toggleClass } to="eventsadmin">Events</Link></li>
-          <li><Link onClick={ toggleClass } to="contactadmin">Kontakt</Link></li>
-          <li><Link onClick={ toggleClass } to="newsadmin">Nyheder</Link></li>
+          <li><Link onClick={ toggleClass } to="eventsadmin">Events Admin</Link></li>
+          <li><Link onClick={ toggleClass } to="contactadmin">Kontakt Admin</Link></li>
+          <li><Link onClick={ toggleClass } to="goalsadmin">Goals Admin</Link></li>
           <li><Logout /></li>
         </ul>
       </div>
@@ -103,6 +102,15 @@ const AdminNavbar = () => {
               isActive ? "activeClassName" : undefined
             }>
             <span className='navUnderline' />Kontakt Admin
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="goalsadmin"
+            className={ ( { isActive } ) =>
+              isActive ? "activeClassName" : undefined
+            }>
+            <span className='navUnderline' />Goals Admin
           </NavLink>
         </li>
         <li>

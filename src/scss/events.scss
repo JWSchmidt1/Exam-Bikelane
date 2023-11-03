@@ -188,6 +188,12 @@ body:has(.eventsHero) {
         color: $davy-gray;
     }
 
+    .eventDetailDaysToEvent {
+        padding: 3rem 0;
+        font-size: calc(.9rem + .9vw);
+        font-family: $font_second;
+    }
+
     .eventsDetailDest {
         font-family: $font_second;
         font-size: calc(.7rem + .7vw);
@@ -386,6 +392,12 @@ body:has(.eventsHero) {
             font-size: calc(1rem + 1vw);
         }
 
+        .eventDetailDaysToEvent {
+            padding: 3rem 0;
+            font-size: calc(1.2rem + 1.2vw);
+            font-family: $font_second;
+        }
+
         .eventsDetailDest {
             font-size: calc(1.2rem + 1.2vw);
         }
@@ -547,6 +559,12 @@ body:has(.eventsHero) {
 
         .eventsDetailText {
             font-size: calc(1rem + 1vw);
+        }
+
+        .eventDetailDaysToEvent {
+            padding: 2rem 0;
+            font-size: calc(1.5rem + 1.5vw);
+            font-family: $font_second;
         }
 
         .eventsDetailDest {

@@ -26,12 +26,12 @@
 }
 
 
-    .adminLogout {
-        border: none;
-        background: none;
-        margin-right: 8rem;
-        padding-bottom: 0 !important;
-    }
+.adminLogout {
+    border: none;
+    background: none;
+    margin-right: 8rem;
+    padding-bottom: 0 !important;
+}
 
 
 
@@ -345,6 +345,98 @@
 
 // ** END ** //
 
+// ** GOALS ADMIN ** //
+// ** START ** //
+
+.goalsAdmin {
+    display: flex;
+    flex-direction: column;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 0;
+        gap: 2rem;
+        
+        .goalsAdminFormData {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+
+            input {
+                display: block;
+                border: 1px solid rgba(128, 128, 128, 0.479);
+                border-radius: .5rem;
+                padding: 1rem;
+                width: 100%;
+                font-family: $font_main;
+                font-size: calc(.5rem + .5vw);
+            }
+
+            label {
+                font-size: calc(.7rem + .7vw);
+            }
+        }
+
+        button {
+            width: fit-content;
+            align-self: center;
+        }
+    }
+
+    .goalsAdminCounterCon {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 12rem 0;
+        position: relative;
+
+        .counterGoalsStats {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            font-family: $font_second;
+            text-align: center;
+            padding: 2rem 3rem;
+            position: relative;
+
+            .counterGoalsStatsIconCon {
+                font-size: calc(0.5rem + 0.5vw);
+                height: 3rem;
+                width: 3rem;
+                color: $blush;
+                border: 1px solid $blush;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .counterGoalsStatsIcon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .counter {
+                font-size: calc(1.9rem + 1.9vw);
+                color: $dark-purple;
+                font-family: $font_main;
+                font-weight: 700;
+            }
+
+            .counterGoalsStatsTitle {
+                font-size: calc(0.6rem + 0.6vw);
+                color: $dim-gray;
+                text-transform: uppercase;
+                padding-top: 2rem;
+            }
+        }
+    }
+}
+
+// ** END ** //
+
 /* ************ TABLET ************ */
 @media only screen and (max-width: 1024px) and (min-width: 641px) {
     .adminFormCon {
@@ -365,6 +457,32 @@
     .eventsAdmin {
         padding: 4rem 5% 8rem 5%;
     }
+
+    .goalsAdmin {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 12rem 0;
+        position: relative;
+      
+        .counterGoalsStats {
+          padding: 2rem 3rem;
+      
+          .counterGoalsStatsIconCon {
+            font-size: calc(1rem + 1vw);
+            height: 3.5rem;
+            width: 3.5rem;
+          }
+      
+          .counter {
+            font-size: calc(4rem + 4vw);
+          }
+      
+          .counterGoalsStatsTitle {
+            font-size: calc(1.1rem + 1.1vw);
+          }
+        }
+      }
 }
 
 /* ************ PHONE ************ */
@@ -607,6 +725,70 @@
 
         textarea {
             padding-bottom: 8rem;
+        }
+    }
+
+    .goalsAdmin {
+        display: flex;
+        flex-direction: column;
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 25%;
+            gap: 2rem;
+            
+            .goalsAdminFormData {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+    
+                input {
+                    display: block;
+                    border: 1px solid rgba(128, 128, 128, 0.479);
+                    border-radius: .5rem;
+                    padding: 1rem;
+                    width: 100%;
+                    font-family: $font_main;
+                    font-size: calc(1rem + 1vw);
+                }
+    
+                label {
+                    font-size: calc(1.2rem + 1.2vw);
+                }
+            }
+    
+            button {
+                width: fit-content;
+                align-self: center;
+            }
+        }
+    
+        .goalsAdminCounterCon {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 12rem 0;
+            position: relative;
+    
+            .counterGoalsStats {
+                padding: 2rem 3rem;
+            
+                .counterGoalsStatsIconCon {
+                  font-size: calc(1rem + 1vw);
+                  height: 3.5rem;
+                  width: 3.5rem;
+                }
+            
+                .counter {
+                  font-size: calc(4rem + 4vw);
+                }
+            
+                .counterGoalsStatsTitle {
+                  font-size: calc(1.1rem + 1.1vw);
+                }
+              }
         }
     }
 }

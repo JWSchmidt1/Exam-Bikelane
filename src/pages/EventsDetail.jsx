@@ -17,8 +17,12 @@ const EventsDetail = () => {
     useEffect( () => {
 
         getData( `http://localhost:5888/events/${ eventsID }` )
-
     }, [] )
+
+    const today = new Date();
+    const eventDate = new Date( data?.eventdate );
+    const days = Math.floor( ( eventDate - today ) / 1000 / 60 / 60 / 24 );
+
 
     return (
         <div className='eventsDetailCon'>
@@ -31,11 +35,12 @@ const EventsDetail = () => {
                 <>
                     <section>
                         <div className='eventDetailInfo'>
-                            <p className='eventsDetailDest'><div className='eventsDetailIconCon'><BiMap className='eventsDetailIcon' /></div> { data.destination }</p>
+                            <p className='eventDetailDaysToEvent'>Dage til eventet starter: { days }</p>
+                            <div className='eventsDetailDest'><p className='eventsDetailIconCon'><BiMap className='eventsDetailIcon' /></p> { data.destination }</div>
                             <time className='eventsDetailTime'>{ new Date( data.eventdate ).toLocaleString( "da-DK", { year: "numeric", month: "long", day: "numeric", } ) } </time>
                         </div>
 
-                        <p className='eventDetailCat'>{data.category.category}</p>
+                        <p className='eventDetailCat'>{ data.category.category }</p>
                         <h2 className='title'>{ data.title }</h2>
                         <div className="eventsDetailText">{ parse( data.content ) }</div>
 
@@ -45,7 +50,7 @@ const EventsDetail = () => {
                         </div>
                     </section>
                     <section className='eventDetailImgCon'>
-                        <img src={ `http://localhost:5888/images/event/${ data.image }` } alt="" />
+                        <img src={ `http://localhost:5888/images/event/${ data.image }` } alt={data.image} />
                     </section>
                 </>
             }

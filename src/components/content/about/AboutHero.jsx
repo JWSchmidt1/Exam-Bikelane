@@ -33,7 +33,7 @@ const AboutHero = () => {
                         <button onClick={ () => navigate( `/${ data[ 1 ].buttonlink }` ) } className='btn-second'>{ data[ 1 ].buttontext }</button>
                     </section>
                     <section className='aboutHeroImg'>
-                        <img src={ `http://localhost:5888/images/hero/${ data[ 1 ].image }` } alt="" />
+                        <img src={ `http://localhost:5888/images/hero/${ data[ 1 ].image }` } alt={data[ 1 ].image} />
                     </section>
                 </>
             }

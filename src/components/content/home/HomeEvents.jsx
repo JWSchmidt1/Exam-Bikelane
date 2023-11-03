@@ -10,8 +10,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-import { EffectCoverflow, Autoplay } from 'swiper/modules';
+
+import { EffectCoverflow, Autoplay, Navigation } from 'swiper/modules';
 
 const HomeEvents = () => {
 
@@ -30,8 +32,8 @@ const HomeEvents = () => {
     return (
         <div className='homeEventsCon'>
 
-                { ( errorH || errorE ) && <ErrorMessage /> }
-                { ( loadingH || loadingE ) && <Loader /> }
+            { ( errorH || errorE ) && <ErrorMessage /> }
+            { ( loadingH || loadingE ) && <Loader /> }
 
             {
                 dataH &&
@@ -46,6 +48,9 @@ const HomeEvents = () => {
             <>
                 <Swiper
                     effect={ 'coverflow' }
+                    style={ {
+                        '--swiper-navigation-color': '#000',
+                    } }
                     breakpoints={ {
                         0: {
                             slidesPerView: 1,
@@ -79,13 +84,14 @@ const HomeEvents = () => {
                         slideShadows: false,
                     } }
                     pagination={ false }
-                    modules={ [ EffectCoverflow, Autoplay ] }
+                    navigation={ true }
+                    modules={ [ EffectCoverflow, Autoplay, Navigation ] }
                     className="mySwiper"
                 >
                     {
                         dataE && dataE.sort( ( a, b ) => new Date( a.eventdate ) - new Date( b.eventdate ) ).filter( ( e ) => new Date( e.eventdate ) > dateNow ).slice( 0, 4 ).map( ( e, index ) =>
                             <SwiperSlide key={ index } onClick={ () => navigate( `/events/${ e._id }` ) }>
-                                <img src={ `http://localhost:5888/images/event/${ e.image }` } alt="" />
+                                <img src={ `http://localhost:5888/images/event/${ e.image }` } alt={ e.image } />
                                 <div className='sliderSub'><time>{ new Date( e.eventdate ).toLocaleString( "da-DK", { year: "numeric", month: "long", day: "numeric", } ) } </time>| Målgruppe: { e.category.category }</div>
                                 <h3 className='sliderTitle'>{ e.title }</h3>
                             </SwiperSlide>

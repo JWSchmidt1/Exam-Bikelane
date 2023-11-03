@@ -16,15 +16,15 @@ const ContactHero = () => {
     return (
         <div className='contactHero'>
 
-                { error && <ErrorMessage /> }
-                { loading && <Loader /> }
+            { error && <ErrorMessage /> }
+            { loading && <Loader /> }
             {
                 data &&
                 <section className='contactHeroCon'>
                     <h3 className="subtitle contactSub">{ data[ 4 ].suptitle }</h3>
                     <h2 className="title contactTitle">{ data[ 4 ].title }</h2>
                     <div className='contactHeroImgCon'>
-                        <img src={ bgimg } alt="" />
+                        <img src={ bgimg } alt={ bgimg } />
                     </div>
                 </section>
             }

@@ -25,13 +25,13 @@ const EventsEdit = () => {
         [ { 'align': [] } ]
     ];
 
-    useEffect(() => {
-      
+    useEffect( () => {
+
         getDataEC( `http://localhost:5888/eventcategories` )
-        
-      
-    }, [])
-    
+
+
+    }, [] )
+
 
     useEffect( () => {
 
@@ -76,17 +76,17 @@ const EventsEdit = () => {
                         </label>
 
                         <label>Kategori
-                            <select className='eventsAdminEditCategory' name="category" defaultChecked={data.category.category} required>
+                            <select className='eventsAdminEditCategory' name="category" defaultChecked={ data.category.category } required>
                                 {
-                                    dataEC && dataEC.map(e => 
-                                        <option value={e._id}>{e.category}</option>
-                                        )
+                                    dataEC && dataEC.map( e =>
+                                        <option value={ e._id }>{ e.category }</option>
+                                    )
                                 }
                             </select>
                         </label>
 
                         <label>Destination
-                            <input type="text" name="destination" defaultValue={data.destination} required />
+                            <input type="text" name="destination" defaultValue={ data.destination } required />
                         </label>
 
                         <label>Dato
@@ -94,15 +94,15 @@ const EventsEdit = () => {
                         </label>
 
                         <label>Sværhedsgrad
-                            <input type="number" name="difficulty" defaultValue={data.difficulty} min="1" max="10" required />
+                            <input type="number" name="difficulty" defaultValue={ data.difficulty } min="1" max="10" required />
                         </label>
 
                         <label>Længde
-                            <input type="number" name="distance" value={data.distance} min="1" required />
+                            <input type="number" name="distance" value={ data.distance } min="1" required />
                         </label>
 
                         <label>Koordinater
-                            <input type="text" name="coordinates" defaultValue={data.coordinates} required />
+                            <input type="text" name="coordinates" defaultValue={ data.coordinates } required />
                         </label>
 
                         <label className='adminQuillTitle'>Brødtekst</label>
@@ -122,7 +122,7 @@ const EventsEdit = () => {
                     </form>
                     <div className='eventsAdminEditCurrentImg'>
                         <p className='eventsAdminEditTitle'>Nuværende Billede</p>
-                        <img src={ `http://localhost:5888/images/event/${ data.image }` } alt="" />
+                        <img src={ `http://localhost:5888/images/event/${ data.image }` } alt={ data.image } />
                     </div>
                 </section>
             }
