@@ -61,16 +61,16 @@ const EventsAdmin = () => {
 
                 <tbody>
                     {
-                        data && data.map( n =>
-                            <tr key={ n._id } className="eventsAdminTable">
-                                <td>{ n.title }</td>
+                        data && data.map( e =>
+                            <tr key={ e._id } className="eventsAdminTable">
+                                <td>{ e.title }</td>
                                 <td className='iconCon'>
-                                    <Link to={ "/admin/eventsadmin/edit/" + n._id } >
+                                    <Link to={ "/admin/eventsadmin/edit/" + e._id } >
                                         <AiFillEdit className="editIcon" />
                                     </Link>
                                 </td>
                                 <td className='iconCon'>
-                                    <AiFillDelete className="deleteIcon" onClick={ () => handleDelete( n._id, n.title ) } />
+                                    <AiFillDelete className="deleteIcon" onClick={ () => handleDelete( e._id, e.title ) } />
                                 </td>
                             </tr>
                         )

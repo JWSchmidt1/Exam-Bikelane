@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import ErrorMessage from "../../components/ErrorMessage"
 import Loader from "../../components/Loader"
 import CounterComponent from '../../components/CounterComponent'
 
-import { usePutData, useGetData } from '../../hooks/useRequestData'
+import { useGetData } from '../../hooks/useRequestData'
 
 
 const GoalsAdmin = () => {
 
     const { error, loading, data, getData } = useGetData()
-    const { error: errorEdit, loading: loadingEdit, data: dataEdit, putData } = usePutData()
 
     useEffect( () => {
 
@@ -18,38 +18,39 @@ const GoalsAdmin = () => {
 
     }, [] )
 
-    const handleSubmit = ( e ) => {
-
-        e.preventDefault()
-
-        let fd = new FormData( e.target )
-
-        putData( `http://localhost:5888/goals/admin/`, fd )
-
-    }
-
     return (
         <div className='goalsAdmin'>
-            <h1 className='adminTitle title'>Administrerer Events</h1>
-            { dataEdit && <h2 className='adminTitle'>Goals rettet</h2> }
+            <h1 className='adminTitle title'>Administrerer Goals</h1>
 
-            { ( error || errorEdit ) && <ErrorMessage /> }
-            { ( loading || loadingEdit ) && <Loader /> }
+            { error && <ErrorMessage /> }
+            { loading && <Loader /> }
 
-            <form className='adminForm' onSubmit={ handleSubmit }>
-                <div className='goalsAdminFormData'>
-
-                {
-                    data && data.sort( ( a, b ) => ( a.order > b.order ) ? 1 : -1 ).map( ( e, index ) =>
-                    <label key={ index }>{ e.goal }
-                        <input type="number" name='goalcount' defaultValue={ e.goalcount } />
-                    </label>
-                    )
-                }
-                </div>
-                <button className='btn' type="submit" >Ret Goals</button>
-            </form>
-
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th className='goalsAdminTableTitle'>Titel</th>
+                        <th>Måltal</th>
+                        <th>Ret</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        data && data.sort( ( a, b ) => ( a.order > b.order ) ? 1 : -1 ).map( e =>
+                            <tr key={ e._id } className="goalsAdminTable">
+                                <td>{ e.goal }</td>
+                                <td>{ e.goalcount }</td>
+                                <td className='goalsAdminEditLink'>
+                                    <Link to={ "/admin/goalsadmin/edit/" + e._id } >Ret</Link>
+                                </td>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </table>
             <div className='goalsAdminCounterCon'>
                 <CounterComponent />
             </div>

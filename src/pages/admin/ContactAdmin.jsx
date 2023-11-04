@@ -19,7 +19,7 @@ const ContactAdmin = () => {
 
   return (
     <div className='contactAdminCon'>
-      <h1 className='adminTitle title'>Administrerer Events</h1>
+      <h1 className='adminTitle title'>Administrerer Kontakter</h1>
 
         { error && <ErrorMessage /> }
         { loading && <Loader /> }

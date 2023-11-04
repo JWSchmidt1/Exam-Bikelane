@@ -6,7 +6,6 @@ import Logout from '../components/Logout'
 import ErrorMessage from '../components/ErrorMessage'
 import Loader from '../components/Loader'
 
-import { VscChevronDown } from 'react-icons/vsc'
 import { CgClose } from 'react-icons/cg'
 
 import logo from '../assets/images/logo/logo-black.png'
@@ -77,23 +76,15 @@ const AdminNavbar = () => {
             <span className='navUnderline' />Forside Admin
           </NavLink>
         </li>
-        <li id='eventsDropdown'>
+        <li>
+
           <NavLink
             to="eventsadmin"
             className={ ( { isActive } ) =>
               isActive ? "activeClassName" : undefined
             }>
-            <span className='navUnderline' />Events Admin<span className="arrowdownCon"><VscChevronDown className="arrowdown" /></span>
+            <span className='navUnderline' />Events Admin
           </NavLink>
-          <ul>
-            <li className="dropdowncontent" id="myDropdown">
-              {
-                data && data.map( ( e, index ) =>
-                  <NavLink key={ index } to={ `events/${ e._id }` }>{ e.category }</NavLink>
-                )
-              }
-            </li>
-          </ul>
         </li>
         <li>
           <NavLink

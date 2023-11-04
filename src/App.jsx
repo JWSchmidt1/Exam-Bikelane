@@ -18,6 +18,7 @@ import EventsCreate from './pages/admin/EventsCreate';
 import EventsEdit from './pages/admin/EventsEdit';
 import ContactAdmin from './pages/admin/ContactAdmin';
 import GoalsAdmin from './pages/admin/GoalsAdmin';
+import GoalsEdit from './pages/admin/GoalsEdit';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -51,7 +52,10 @@ const router = createBrowserRouter(
         <Route path="eventsadmin/edit/:eventsID" element={ <EventsEdit /> } />
 
         <Route path="contactadmin" element={ <ContactAdmin /> } />
+
+        {/* GOALS */}
         <Route path="goalsadmin" element={ <GoalsAdmin /> } />
+        <Route path="goalsadmin/edit/:goalsID" element={ <GoalsEdit /> } />
 
 
       </Route>

@@ -97,7 +97,7 @@ const Navbar = () => {
             <li className="dropdowncontent" id="myDropdown">
               {
                 data && data.map( ( e, index ) =>
-                  <NavLink key={ index } to={ `events/${ e._id }` }>{ e.category }</NavLink>
+                  <NavLink key={ index } to={ `events` }>{ e.category }</NavLink>
                 )
               }
             </li>

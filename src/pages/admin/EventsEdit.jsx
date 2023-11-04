@@ -63,8 +63,8 @@ const EventsEdit = () => {
             <h1 className='adminTitle title'>Ret event - { eventsID }</h1>
             { dataEdit && <h2 className='adminTitle'>Event er rettet</h2> }
 
-            { ( error || errorEdit ) && <ErrorMessage /> }
-            { ( loading || loadingEdit ) && <Loader /> }
+            { ( error || errorEdit || errorEC ) && <ErrorMessage /> }
+            { ( loading || loadingEdit || loadingEC ) && <Loader /> }
 
             { data &&
 
