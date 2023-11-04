@@ -78,8 +78,8 @@ const EventsEdit = () => {
                         <label>Kategori
                             <select className='eventsAdminEditCategory' name="category" defaultChecked={ data.category.category } required>
                                 {
-                                    dataEC && dataEC.map( e =>
-                                        <option value={ e._id }>{ e.category }</option>
+                                    dataEC && dataEC.map( ( e, index ) =>
+                                        <option key={ index } value={ e._id }>{ e.category }</option>
                                     )
                                 }
                             </select>

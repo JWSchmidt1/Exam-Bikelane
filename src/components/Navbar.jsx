@@ -5,7 +5,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import ErrorMessage from './ErrorMessage'
 import Loader from './Loader'
 
-import { VscChevronDown } from 'react-icons/vsc'
+import { HiChevronDown } from 'react-icons/hi'
 import { CgClose } from 'react-icons/cg'
 
 import logo from '../assets/images/logo/logo-black.png'
@@ -43,9 +43,9 @@ const Navbar = () => {
   return (
     <nav className={ `navigation ${ stickyClass }` }>
 
-        { error && <ErrorMessage /> }
-        { loading && <Loader /> }
-      
+      { error && <ErrorMessage /> }
+      { loading && <Loader /> }
+
       <Link to="" className='navLogo'><img className='navLogoImg' src={ logo } alt="logo-black" /></Link>
 
       {/* Burgermenu */ }
@@ -91,7 +91,7 @@ const Navbar = () => {
             className={ ( { isActive } ) =>
               isActive ? "activeClassName" : undefined
             }>
-            <span className='navUnderline' />Events<span className="arrowdownCon"><VscChevronDown className="arrowdown" /></span>
+            <span className='navUnderline' />Events<span className="arrowdownCon"><HiChevronDown className="arrowdown" /></span>
           </NavLink>
           <ul>
             <li className="dropdowncontent" id="myDropdown">

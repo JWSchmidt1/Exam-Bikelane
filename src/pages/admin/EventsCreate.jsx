@@ -64,8 +64,8 @@ const EventsCreate = () => {
                     <label>Kategori
                         <select className='eventsAdminCreateCategory' name="category" defaultChecked='Vælg kategori' required>
                             {
-                                dataEC && dataEC.map( e =>
-                                    <option value={ e._id }>{ e.category }</option>
+                                dataEC && dataEC.map( ( e, index ) =>
+                                    <option key={ index } value={ e._id }>{ e.category }</option>
                                 )
                             }
                         </select>

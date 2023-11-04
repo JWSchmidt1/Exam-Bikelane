@@ -138,6 +138,7 @@
             font-family: $font_second;
             text-align: center;
             padding-right: 5rem;
+            gap: 1rem;
 
             .counterGoalsStatsIconCon {
                 color: #fff;
@@ -160,7 +161,6 @@
             .counter {
                 font-size: calc(1.7rem + 1.7vw);
                 color: #fff;
-                padding: 1.3rem 0;
             }
 
             // .homeGoalsCounter::after {
@@ -242,12 +242,13 @@
     .homeInterestsKeypointsCon {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem 4rem;
+        gap: 4rem;
 
         .homeInterestsKeypoints {
             display: grid;
             grid-template-columns: 4rem auto;
             column-gap: 6rem;
+            line-height: 3rem;
 
             .keypointIconCon {
                 width: 7rem;
