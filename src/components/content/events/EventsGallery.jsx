@@ -14,14 +14,14 @@ const EventsGallery = () => {
     const { error: errorE, loading: loadingE, data: dataE, getData: getDataE } = useGetData()
 
     const [ filter, setFilter ] = useState( '' )
-
+    
     const navigate = useNavigate()
-
+    
     useEffect( () => {
         getDataEC( "http://localhost:5888/eventcategories" )
         getDataE( "http://localhost:5888/events" )
     }, [] )
-
+    
     const dateNow = new Date();
 
     return (
@@ -42,7 +42,14 @@ const EventsGallery = () => {
                 }
             </ul>
             {
-                dataE && dataE.sort( ( a, b ) => new Date( a.eventdate ) - new Date( b.eventdate ) ).filter( ( e ) => new Date( e.eventdate ) > dateNow ).filter( ( e ) => filter === '' || e.category.category === filter ).map( ( e, index ) => (
+                dataE && dataE
+                .sort( ( a, b ) => new Date( a.eventdate ) - new Date( b.eventdate ) )
+
+                .filter( ( e ) => new Date( e.eventdate ) > dateNow )
+
+                .filter( ( e ) => filter === '' || e.category.category === filter )
+
+                .map( ( e, index ) => (
 
                     <div onClick={ () => navigate( e._id ) } className='eventsGalleryImgCon' key={ index }>
                         <div className='eventsGalleryImg'>
