@@ -1,7 +1,6 @@
 React App
 
-Bikelane Final Exam Project.
-
 <b>
-  HEJ
+  Bikelane Final Exam Project.
 </b>
+
