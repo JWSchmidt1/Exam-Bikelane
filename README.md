@@ -21,4 +21,4 @@ Bikelane is a React web application designed to host a variety of bike-related e
 
 Feel free to explore the app, and your feedback is greatly appreciated!
 
-[Bikelane Website](http://www.bikelane.jwschmidt.dk){:target="_blank"}
+<a href="http://www.bikelane.jwschmidt.dk" target="_blank">Bikelane Website</a>
