@@ -1,6 +1,6 @@
 React App
 
 <b>
-  Bikelane Final Exam Project.
+Bikelane Final Exam Project.
 </b>
 
